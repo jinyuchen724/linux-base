@@ -286,7 +286,7 @@ search ops.com
 
 - 将cgi-bin 代码 放入到 /var/www/cgi-bin 目录中
 
-具体代码参考 http://git.ops.com/OPS/dns-api
+具体代码参考 https://github.com/jinyuchen724/linux-base/tree/master/1.%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9FDNS/cgi-bin
 
 - 启动httpd 服务 
 
