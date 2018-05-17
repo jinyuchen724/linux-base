@@ -13,17 +13,13 @@
 | marathon-master01(172.22.1.50)  | dns-master  |   Centos 7.3(x86-64)|  bind-9.9.4 |  主服务器|
 |marathon-master02(172.22.1.51)   | dns-slave |Centos 7.3(x86-64)  | bind-9.9.4 | 备服务器 |
 
-
-
-
 #  安装 bind 软件
 
 1.安装dns软件 
 
 ```
-yum install bind bind-utils -y
+[root@marathon-master01 opt]# yum install bind bind-utils -y
 ```
-
 
 # dns系统配置
 
@@ -36,34 +32,29 @@ yum install bind bind-utils -y
 - 拷贝默认配置到 /var/named 目录 
 
 ```
-[root@marathon-master01 zookeeper]# cp /etc/named.iscdlv.key  /var/named
-[root@marathon-master01 zookeeper]# cp /etc/named.root.key  /var/named
+[root@marathon-master01 zookeeper]#cp /etc/named.iscdlv.key  /var/named
+[root@marathon-master01 zookeeper]#cp /etc/named.root.key  /var/named
 ```
 
 - 更新根域名服务器列表 
 
 ```
-cd /var/named
-wget ftp://ftp.rs.internic.net/domain/named.root
-
+[root@marathon-master01 opt]#cd /var/named
+[root@marathon-master01 opt]#wget ftp://ftp.rs.internic.net/domain/named.root
 ```
 
 - 建立目录 
 
 ```
-mkdir -p /var/log/named
-chown named:named /var/log/named
-mkdir -p /var/named/op_backup
+[root@marathon-master01 opt]#mkdir -p /var/log/named
+[root@marathon-master01 opt]#chown named:named /var/log/named
+[root@marathon-master01 opt]#mkdir -p /var/named/op_backup
 ```
-
-
 - 删除默认目录配置文件 
 
-
 ```
-rm -fr /var/named/slaves
+[root@marathon-master01 opt]#rm -fr /var/named/slaves
 ```
-
 
 - 修改主配置文件 /var/named/named.conf 
 
@@ -177,12 +168,9 @@ rm -fr /var/named/slaves
   };
 ```
 
-
 - 示例zone 文件配置 
 
-
 ```
-
 $TTL 86400
 $ORIGIN ops.com.
 @       IN  SOA ns1 root(
@@ -211,7 +199,6 @@ marathon-slave01   IN  A  172.22.1.53
 
 ```
 
-
 - 设置 /etc/sysconfig/named 使用自定义named.conf 启动
 
 ```
@@ -232,10 +219,9 @@ marathon-slave01   IN  A  172.22.1.53
   OPTIONS=" -c /var/named/named.conf"
 ```
 
-
 - rndc key 配置(和named.conf 的key 配置一致)
 ```
-  # cat /etc/rndc.key
+  [root@marathon-master01 opt]## cat /etc/rndc.key
   key "rndc-key" {
           algorithm hmac-md5;
           secret "lIuxoeMronDF7w+zpRc8RQ==";
@@ -248,46 +234,43 @@ marathon-slave01   IN  A  172.22.1.53
 - 加入启动服务中
 
 ```
-chkconfig --level 345 named on
-  systemctl enable named
-
+[root@marathon-master01 opt]#chkconfig --level 345 named on
+[root@marathon-master01 opt]#systemctl enable named
 ```
 
 - 启动服务
 
 ```
-service named start
-  systemctl start named.service
+[root@marathon-master01 opt]#service named start
+[root@marathon-master01 opt]#systemctl start named.service
 ```
 
 - 解析测试确认是否正常
 
 ```
-dig @localhost localhost
+[root@marathon-master01 opt]#dig @localhost localhost
 ```
 
 - dns api 接口功能安装
 
 ```
-yum install httpd -y
+[root@marathon-master01 opt]#yum install httpd -y
 ```
 
 - 需要将 apache 用户加入到 named 组 ，这样才有权限访问 zone 文件配置
 
 ```
-usermod -a -G named apache
+[root@marathon-master01 opt]#usermod -a -G named apache
 ```
-
 
 - 设置目录的属主和权限 
 
 ```
- chown named:apache /var/log/named
-  chown -R named:apache /var/named
-  chmod 770 /var/named/op_backup
-  chmod 770 /var/named/
-  chmod 770 /var/log/named
-
+[root@marathon-master01 opt]#chown named:apache /var/log/named
+[root@marathon-master01 opt]#chown -R named:apache /var/named
+[root@marathon-master01 opt]#chmod 770 /var/named/op_backup
+[root@marathon-master01 opt]#chmod 770 /var/named/
+[root@marathon-master01 opt]#chmod 770 /var/log/named
 ```
 
 - 将cgi-bin 代码 放入到 /var/www/cgi-bin 目录中
@@ -297,13 +280,13 @@ usermod -a -G named apache
 - 启动httpd 服务 
 
 ```
-  systemctl enable httpd
-  systemctl start httpd
+[root@marathon-master01 opt]#systemctl enable httpd
+[root@marathon-master01 opt]#systemctl start httpd
 ```
 - 如果操作是查询域名,则返回值是域名的查询结果,IP地址
 
 | 参数名称   |   参数名称   |   
-| ------ | ----- | ----- | ------- | ------ |
+| ------ | ----- | 
 | 参数1 : action  | 操作类型,可选项 [add,modify,del,query]  |
 |参数2 : domain   | 对其操作的域名操 |
 |参数3 : ip   | 域名对应的ip地址 |
@@ -311,7 +294,7 @@ usermod -a -G named apache
 - 接口返回值定义
 
 | 返回值   |   返回值   |   
-| ------ | ----- | ----- | ------- | ------ |
+| ------ | ----- | 
 | STATUS=OK | STATUS=IP地址  |
 |STATUS=错误信息内容   | 返回错误的具体信息 |
 |STATUS=IP地址  | 如果操作是查询域名,则返回值是域名的查询结果,IP地址 |
@@ -321,73 +304,66 @@ usermod -a -G named apache
 - 添加域名 : test.ops.com ip指向是192.168.0.10 
 
 ```
-wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=add&domain=test.ops.com&ip=192.168.0.10&type=A"
-  # cat 1.txt
-  STATUS=OK
-  192.168.0.10
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=add&domain=test.ops.com&ip=192.168.0.10&type=A"
+[root@marathon-master01 opt]#cat 1.txt
+STATUS=OK
+192.168.0.10
 ```
 
 - 修改域名 : test.ops.com ip指向变更为192.168.0.20 
 
 ```
-wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=modify&domain=test.ops.com&ip=192.168.0.20&type=A"
-  # cat 1.txt
-  STATUS=OK
-  192.168.0.20
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=modify&domain=test.ops.com&ip=192.168.0.20&type=A"
+[root@marathon-master01 opt]#cat 1.txt
+STATUS=OK
+192.168.0.20
 ```
 
 - 删除域名 : test.ops.com ip指向是192.168.0.20 
 
 ```
-  wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=del&domain=test.ops.com&ip=192.168.0.20&type=A"
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=del&domain=test.ops.com&ip=192.168.0.20&type=A"
 ```
 
 - 查询域名 : www.sina.com.cn
 
 ```
- wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=query&domain=www.sina.com.cn"
-  # cat 1.txt
-  STATUS=101.71.100.123
-  172.16.1.210
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=query&domain=www.sina.com.cn"
+[root@marathon-master01 opt]# cat 1.txt
+STATUS=101.71.100.123
+172.16.1.210
 ```
 
- 注意: 目前saltstack 就使用dns api 接口方式进行自动注册主机名到域名系统中 
+注意: 目前saltstack 就使用dns api 接口方式进行自动注册主机名到域名系统中 
  
+# 通过命令行方式进行 增 删 改 查 域名
  
+- 直接编辑 域文件 例如: /var/named/data/ops.com.hosts 
  
- # 通过命令行方式进行 增 删 改 查 域名
- 
- - 直接编辑 域文件 例如: /var/named/data/ops.com.hosts 
- 
- - 直接编辑 域文件 例如: /var/named/data/ops.com.hosts 
+- 直接编辑 域文件 例如: /var/named/data/ops.com.hosts 
   
- - 更改 域文件的序列号,默认 +1 即可,用于主备同步 
- 
- 
- ```
- 
+- 更改 域文件的序列号,默认 +1 即可,用于主备同步 
+  
+``` 
    @       IN  SOA ns1 root(
               1708252706      ;serial
               12h     ;refresh
               7200        ;retry
               604800      ;expire
               86400       ;mininum
- ```
+```
  
+- 执行 重新载入命令 
  
- - 执行 重新载入命令 
+```
+[root@marathon-master01 opt]#rndc reload
+```
  
- ```
-   rndc reload
- ```
+- 检查日志和测试域名解析即可 
  
- - 检查日志和测试域名解析即可 
- 
- ```
-   tail /var/log/named/messages
-  
-  dig @localhost test.ops.com
- 
- ```
- 注意: 上述操作都是在 主服务器上操作,备服务器不许要操作(自动同步)
+```
+[root@marathon-master01 opt]#tail /var/log/named/messages
+[root@marathon-master01 opt]#dig @localhost test.ops.com
+```
+注意: 上述操作都是在 主服务器上操作,备服务器不许要操作(自动同步)
 如果增加新域解析,需要在主备服务器上修改 /var/named/named.conf 增加新的zone配置
