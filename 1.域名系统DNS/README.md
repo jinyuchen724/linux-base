@@ -171,7 +171,6 @@
 - 示例zone 文件配置 
 
 ```
-
 $TTL 86400
 $ORIGIN ops.com.
 @       IN  SOA ns1 root(
@@ -283,7 +282,6 @@ search ops.com
 [root@marathon-master01 opt]#chmod 770 /var/named/
 [root@marathon-master01 opt]#chmod 770 /var/log/named
 ```
-
 - 将cgi-bin 代码 放入到 /var/www/cgi-bin 目录中
 
 具体代码参考 https://github.com/jinyuchen724/linux-base/tree/master/1.%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9FDNS/cgi-bin
@@ -356,7 +354,7 @@ STATUS=101.71.100.123
 - 直接编辑 域文件 例如: /var/named/data/ops.com.hosts 
   
 - 更改 域文件的序列号,默认 +1 即可,用于主备同步 
-  
+
 ``` 
 @     IN  SOA ns1 root(
           1708252706      ;serial
