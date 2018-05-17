@@ -301,28 +301,28 @@ marathon-slave01   IN  A  172.22.1.53
 
 - 接口返回值定义
 
-- 添加域名 : test.ops.com ip指向是192.168.0.10 
+- 添加域名 : marathon-master01.ops.com ip指向是172.22.1.50 
 
 ```
-[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=add&domain=test.ops.com&ip=192.168.0.10&type=A"
+[root@marathon-master01 cgi-bin]# wget -O update_dns.log "http://ns1.ops.com/cgi-bin/dns.cgi?action=add&domain=marathon-master01.ops.com&ip=172.22.1.50&type=A"
+[root@marathon-master01 opt]# cat update_dns.log 
+STATUS=OK
+172.22.1.50
+```
+
+- 修改域名 : marathon-master01.ops.com ip指向变更为172.22.1.51
+
+```
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=modify&domain=marathon-master01.ops.com&ip=172.22.1.51&type=A"
 [root@marathon-master01 opt]#cat 1.txt
 STATUS=OK
-192.168.0.10
+172.22.1.51
 ```
 
-- 修改域名 : test.ops.com ip指向变更为192.168.0.20 
+- 删除域名 : marathon-master01.ops.com ip指向是172.22.1.51 
 
 ```
-[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=modify&domain=test.ops.com&ip=192.168.0.20&type=A"
-[root@marathon-master01 opt]#cat 1.txt
-STATUS=OK
-192.168.0.20
-```
-
-- 删除域名 : test.ops.com ip指向是192.168.0.20 
-
-```
-[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=del&domain=test.ops.com&ip=192.168.0.20&type=A"
+[root@marathon-master01 opt]#wget -O 1.txt "http://ns1.sysadmin.xinguangnet.com/cgi-bin/dns.cgi?action=del&domain=marathon-master01.ops.com&ip=172.22.1.51&type=A"
 ```
 
 - 查询域名 : www.sina.com.cn
