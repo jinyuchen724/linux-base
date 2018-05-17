@@ -15,7 +15,7 @@
 
 #  安装 bind 软件
 
-1.安装dns软件 
+- 安装dns软件 
 
 ```
 [root@marathon-master01 opt]# yum install bind bind-utils -y
