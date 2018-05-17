@@ -2,7 +2,7 @@
 用户域名解析功能
 
 # 应用/系统拓扑图
-
+ ![image](https://github.com/jinyuchen724/linux-base/raw/master/1.域名系统DNS/dns.jpg)
 
 # 部署安装
 
