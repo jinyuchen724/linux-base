@@ -161,9 +161,9 @@
 ```
  zone "sysadmin.xinguangnet.com" IN {
              type slave;
-             file "data/sysadmin.xinguangnet.com.hosts";
+             file "data/ops.com.hosts";
           masters {
-                  172.16.1.210;
+                  172.22.1.50;
                   };
   };
 ```
