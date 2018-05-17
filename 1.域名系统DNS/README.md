@@ -73,7 +73,7 @@
           dnssec-validation yes;
           dnssec-lookaside auto;
           /* 需要调整为slave的ip */
-      allow-transfer  { 172.22.1.50;};
+      allow-transfer  { 172.22.1.51;};
           /* Path to ISC DLV key 不加会导致CPU 100%*/
           bindkeys-file "/var/named/named.iscdlv.key";
           managed-keys-directory "/var/named/dynamic";
