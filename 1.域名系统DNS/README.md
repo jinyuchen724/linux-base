@@ -77,7 +77,7 @@
           /* Path to ISC DLV key 不加会导致CPU 100%*/
           bindkeys-file "/var/named/named.iscdlv.key";
           managed-keys-directory "/var/named/dynamic";
-		  #转发到阿里的dns
+	  #转发到阿里的dns
           forward first;
           forwarders{
                 100.100.2.138;
@@ -171,32 +171,28 @@
 - 示例zone 文件配置 
 
 ```
+
 $TTL 86400
 $ORIGIN ops.com.
 @       IN  SOA ns1 root(
-              2013031904      ;serial
+              1805175654      ;serial
               12h     ;refresh
               7200        ;retry
               604800      ;expire
               86400       ;mininum
               )
-			  #主备节点域名
-              NS  ns1.ops.com.  
-              ;NS  ns2.ops.com.
+              NS  ns1.ops.com.
+              NS  ns2.ops.com.
               MX  10  mail.ops.com.
 
-
-#主备节点A记录地址
 ns1     IN  A   172.22.1.50
- ; ns2     IN  A   172.16.1.211
+ns2     IN  A   172.22.1.51
 
 $TTL 600
-
-marathon-master01   IN  A  172.22.1.50
-marathon-master02   IN  A  172.22.1.51
-marathon-master03   IN  A  172.22.1.52
-marathon-slave01   IN  A  172.22.1.53
-
+marathon-slave01.ops.com.       A       172.22.1.53
+marathon-master03.ops.com.      A       172.22.1.52
+marathon-master02.ops.com.      A       172.22.1.51
+marathon-master01.ops.com.      A       172.22.1.50
 ```
 
 - 设置 /etc/sysconfig/named 使用自定义named.conf 启动
