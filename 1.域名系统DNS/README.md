@@ -215,6 +215,7 @@ marathon-master01.ops.com.      A       172.22.1.50
 ```
 
 - rndc key 配置(和named.conf 的key 配置一致)
+
 ```
   [root@marathon-master01 opt]## cat /etc/rndc.key
   key "rndc-key" {
@@ -248,7 +249,8 @@ marathon-master01.ops.com.      A       172.22.1.50
 
 - 修改/etc/reslove.conf文件
 
-`[root@marathon-master01 opt]# cat /etc/resolv.conf 
+```
+[root@marathon-master01 opt]# cat /etc/resolv.conf 
 ;options timeout:2 attempts:3 rotate single-request-reopen
 ;dns地址
 nameserver 172.22.1.50
@@ -258,7 +260,6 @@ nameserver 172.22.1.51
 ;nameserver 100.100.2.138
 ;查询这个域下的机器
 search ops.com
-``
 ```
 
 - dns api 接口功能安装
@@ -292,6 +293,7 @@ search ops.com
 [root@marathon-master01 opt]#systemctl enable httpd
 [root@marathon-master01 opt]#systemctl start httpd
 ```
+
 - 将cgi-bin整个目录拷贝至/var/www/下
 
 - 如果操作是查询域名,则返回值是域名的查询结果,IP地址
