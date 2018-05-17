@@ -345,12 +345,12 @@ STATUS=101.71.100.123
 - 更改 域文件的序列号,默认 +1 即可,用于主备同步 
   
 ``` 
-   @       IN  SOA ns1 root(
-              1708252706      ;serial
-              12h     ;refresh
-              7200        ;retry
-              604800      ;expire
-              86400       ;mininum
+@     IN  SOA ns1 root(
+          1708252706      ;serial
+          12h     ;refresh
+          7200        ;retry
+          604800      ;expire
+          86400       ;mininum
 ```
  
 - 执行 重新载入命令 
