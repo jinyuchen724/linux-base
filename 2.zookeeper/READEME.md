@@ -16,6 +16,7 @@
 - 安装Java环境
 
 Zookeeper是用Java编写，需要依赖Java的运行环境，安装完后执行<kbd>java -version</kbd>命令检查JDK是否安装成功。如下输出信息：
+
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# java -version
 java version "1.8.0_65"
