@@ -321,7 +321,6 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 [root@ali02-prod-ops-jirawiki-01 ~]# mv atlassian-extras-decoder-v2-3.3.0.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/
 [root@ali02-prod-ops-jirawiki-01 ~]# cd /xinguang/install/atlassian-confluence-wiki-6.7.3-patch/
 [root@ali02-prod-ops-jirawiki-01 atlassian-confluence-wiki-6.7.3-patch]# cp Confluence-6.7.0-language-pack-zh_CN.jar mysql-connector-java-5.1.39-bin.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/
-
 [root@ali02-prod-ops-jirawiki-01 atlassian-confluence-wiki-6.7.3-patch]# /etc/init.d/confluence start    //启动confluence服务
 ```
 
