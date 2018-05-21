@@ -1,30 +1,28 @@
-| °æ±¾ | ÈÕÆÚ | ×´Ì¬ | ĞŞ¶©ÈË | ÕªÒª |
-| - | :-: | :-: | :-: | :-: | -: |
-| V1.0 | 2018-05-20 | ³õ´Î±àĞ´ | »ÆÖ¾¸Õ | ³õ´Î±àĞ´ |
+| ç‰ˆæœ¬ | æ—¥æœŸ | çŠ¶æ€ | ä¿®è®¢äºº | æ‘˜è¦ |
+| - | - | - | - | - |
+| V1.0 | 2018-05-20 | åˆæ¬¡ç¼–å†™ | å¼€æº | åˆæ¬¡ç¼–å†™ |
 
-[TOC]
+# ä¸€ã€é›†ç¾¤ç¯å¢ƒè¯´æ˜ 
 
-# Ò»¡¢¼¯Èº»·¾³ËµÃ÷ 
-
-| Ö÷»úÃû³Æ | ²Ù×÷ÏµÍ³ÀàĞÍ | ÄÚÍøIPµØÖ· |
+| ä¸»æœºåç§° | æ“ä½œç³»ç»Ÿç±»å‹ | å†…ç½‘IPåœ°å€ |
 | - | :-: | :-: | -: |
 | ali03-prod-toko-zookeeper-01 | CentOS Linux release 7.4 | 10.11.11.22 |
 | ali03-prod-toko-zookeeper-02 | CentOS Linux release 7.4 | 10.11.11.27 |
 | ali03-prod-toko-zookeeper-03 | CentOS Linux release 7.4 | 10.11.11.28 |
 
 
-# ¶ş¡¢²¿ÊğZookeeper¼¯Èº
+# äºŒã€éƒ¨ç½²Zookeeperé›†ç¾¤
 
-- °²×°Java»·¾³
+- å®‰è£…Javaç¯å¢ƒ
 
-ZookeeperÊÇÓÃJava±àĞ´£¬ĞèÒªÒÀÀµJavaµÄÔËĞĞ»·¾³£¬°²×°ÍêºóÖ´ĞĞ<kbd>java -version</kbd>ÃüÁî¼ì²éJDKÊÇ·ñ°²×°³É¹¦¡£ÈçÏÂÊä³öĞÅÏ¢£º
+Zookeeperæ˜¯ç”¨Javaç¼–å†™ï¼Œéœ€è¦ä¾èµ–Javaçš„è¿è¡Œç¯å¢ƒï¼Œå®‰è£…å®Œåæ‰§è¡Œ<kbd>java -version</kbd>å‘½ä»¤æ£€æŸ¥JDKæ˜¯å¦å®‰è£…æˆåŠŸã€‚å¦‚ä¸‹è¾“å‡ºä¿¡æ¯ï¼š
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# java -version
 java version "1.8.0_65"
 Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
 Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)
 ```
-> ±¾»·¾³ÖĞµÄJDK¾ùÊÇÊ¹ÓÃ½Å±¾½øĞĞ°²×°£¬°²×°Â·¾¶¾ùÔÚ/xinguang/ÏÂ °²×°¹ı³Ì¾ÍÂÔ¹ı¡£ÒÔÏÂÊÇ½Å±¾ÄÚÈİ:
+> æœ¬ç¯å¢ƒä¸­çš„JDKå‡æ˜¯ä½¿ç”¨è„šæœ¬è¿›è¡Œå®‰è£…ï¼Œå®‰è£…è·¯å¾„å‡åœ¨/xinguang/ä¸‹ å®‰è£…è¿‡ç¨‹å°±ç•¥è¿‡ã€‚ä»¥ä¸‹æ˜¯è„šæœ¬å†…å®¹:
 
 ```
 #!/bin/bash
@@ -61,17 +59,17 @@ source /etc/profile
 bash
 ```
 
-- ÏÂÔØZookeeper°²×°°ü
+- ä¸‹è½½Zookeeperå®‰è£…åŒ…
 
-´ÓApache²Ö¿âÖĞÏÂÔØZookeeperµÄ¶ş½øÖÆÖ´ĞĞÎÄ¼ş£¬±¾»·¾³ËùÓÃµÄZookeeper°æ±¾Îª3.4.6
+ä»Apacheä»“åº“ä¸­ä¸‹è½½Zookeeperçš„äºŒè¿›åˆ¶æ‰§è¡Œæ–‡ä»¶ï¼Œæœ¬ç¯å¢ƒæ‰€ç”¨çš„Zookeeperç‰ˆæœ¬ä¸º3.4.6
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.6/zookeeper-3.4.6.tar.gz
 ```
 
-- ½âÑ¹²¢³Ézoo.cfgÎÄ¼ş
+- è§£å‹å¹¶æˆzoo.cfgæ–‡ä»¶
 
-½«ÏÂÔØºÃµÄZookeeper¶ş½øÖÆÎÄ¼ş°ü½âÑ¹µ½/xinguangÏÂ£¬¸ü¸ÄZookeeperËùÊôÖ÷ºÍ×éÎªroot£¬Éú³Ézoo.cfgÅäÖÃÎÄ¼ş
+å°†ä¸‹è½½å¥½çš„ZookeeperäºŒè¿›åˆ¶æ–‡ä»¶åŒ…è§£å‹åˆ°/xinguangä¸‹ï¼Œæ›´æ”¹Zookeeperæ‰€å±ä¸»å’Œç»„ä¸ºrootï¼Œç”Ÿæˆzoo.cfgé…ç½®æ–‡ä»¶
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# tar -xf zookeeper-3.4.6.tar.gz -C /xinguang
@@ -80,9 +78,9 @@ bash
 [root@ali03-prod-toko-zookeeper-01 ~]# cd /xinguang/zookeeper/conf && cp zoo_sample.cfg zoo.cfg
 ```
 
-- ÉèÖÃzoo.cfgÎÄ¼ş
+- è®¾ç½®zoo.cfgæ–‡ä»¶
 
-ÒÔÏÂÒÔali03-prod-toko-zookeeper-01½ÚµãÎªÀıÉèÖÃZookeeperµÄÅäÖÃÎÄ¼ş£¬ÁíÍâ2¸ö½ÚµãµÄÅäÖÃÎÄ¼şÒ²ÊÇÍ¬ÑùÉèÖÃ
+ä»¥ä¸‹ä»¥ali03-prod-toko-zookeeper-01èŠ‚ç‚¹ä¸ºä¾‹è®¾ç½®Zookeeperçš„é…ç½®æ–‡ä»¶ï¼Œå¦å¤–2ä¸ªèŠ‚ç‚¹çš„é…ç½®æ–‡ä»¶ä¹Ÿæ˜¯åŒæ ·è®¾ç½®
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# vim /xinguang/zookeeper/conf/zoo.cfg 
@@ -97,34 +95,34 @@ server.2=10.11.11.27:2888:3888
 server.3=10.11.11.28:2888:3888
 ```
 
-- ´´½¨myidÎÄ¼ş
+- åˆ›å»ºmyidæ–‡ä»¶
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-01½Úµã´´½¨myidÎÄ¼ş
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-01èŠ‚ç‚¹åˆ›å»ºmyidæ–‡ä»¶
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# mkdir /xinguang/zookeeper/{data,logs}
 [root@ali03-prod-toko-zookeeper-01 ~]# echo "1" > /xinguang/zookeeper/data/myid 
 ```
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-02½Úµã´´½¨myidÎÄ¼ş
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-02èŠ‚ç‚¹åˆ›å»ºmyidæ–‡ä»¶
 
 ```
 [root@ali03-prod-toko-zookeeper-02 ~]# mkdir /xinguang/zookeeper/{data,logs}
 [root@ali03-prod-toko-zookeeper-02 ~]# echo "2" > /xinguang/zookeeper/data/myid 
 ```
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-03½Úµã´´½¨myidÎÄ¼ş
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-03èŠ‚ç‚¹åˆ›å»ºmyidæ–‡ä»¶
 
 ```
 [root@ali03-prod-toko-zookeeper-03 ~]# mkdir /xinguang/zookeeper/{data,logs}
 [root@ali03-prod-toko-zookeeper-03 ~]# echo "3" > /xinguang/zookeeper/data/myid 
 ```
 
-> myidÖµĞèÒª¸ù¾İ¸÷¸ö½ÚµãÀ´µ÷Õû,½Úµã1 echo "1"£¬½Úµã2 echo "2"£¬½Úµã3 echo "3"
+> myidå€¼éœ€è¦æ ¹æ®å„ä¸ªèŠ‚ç‚¹æ¥è°ƒæ•´,èŠ‚ç‚¹1 echo "1"ï¼ŒèŠ‚ç‚¹2 echo "2"ï¼ŒèŠ‚ç‚¹3 echo "3"
 
-- ÉèÖÃ»·¾³±äÁ¿
+- è®¾ç½®ç¯å¢ƒå˜é‡
 
-½«ZookeeperµÄÏà¹ØÃüÁî×·¼ÓÖÁÏµÍ³µÄPATH»·¾³±äÁ¿ÖĞ¡£±à¼­/etc/profileÎÄ¼ş£¬Ìí¼ÓÈçÏÂÎÄ±¾ÄÚÈİÖÁÎÄ¼şÄ©Î²
+å°†Zookeeperçš„ç›¸å…³å‘½ä»¤è¿½åŠ è‡³ç³»ç»Ÿçš„PATHç¯å¢ƒå˜é‡ä¸­ã€‚ç¼–è¾‘/etc/profileæ–‡ä»¶ï¼Œæ·»åŠ å¦‚ä¸‹æ–‡æœ¬å†…å®¹è‡³æ–‡ä»¶æœ«å°¾
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# vim /etc/profile 
@@ -133,15 +131,15 @@ export ZOOKEEPER_HOME=/xinguang/zookeeper
 export PATH=$PATH:$ZOOKEEPER_HOME/bin
 ```
 
-Ö´ĞĞsourceÃüÁîÊ¹ĞŞ¸ÄµÄÅäÖÃÉúĞ§
+æ‰§è¡Œsourceå‘½ä»¤ä½¿ä¿®æ”¹çš„é…ç½®ç”Ÿæ•ˆ
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# source /etc/profile
 ```
 
-- ´´½¨Zookeeper¿ª»úÆô¶¯ÎÄ¼ş
+- åˆ›å»ºZookeeperå¼€æœºå¯åŠ¨æ–‡ä»¶
 
-ÒÔÏÂ½Å±¾ÄÚÈİÎªZookeeper¿ª»úÆô¶¯½Å±¾£¬Ğè·Åµ½/etc/init.d/Â·¾¶ÏÂ
+ä»¥ä¸‹è„šæœ¬å†…å®¹ä¸ºZookeeperå¼€æœºå¯åŠ¨è„šæœ¬ï¼Œéœ€æ”¾åˆ°/etc/init.d/è·¯å¾„ä¸‹
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# vim /etc/init.d/zookeeper 
@@ -176,16 +174,16 @@ case "$1" in
 esac
 ```
 
-- ¸ø½Å±¾Ìí¼Ó¿ÉÖ´ĞĞÈ¨ÏŞ²¢ÉèÖÃZookeeper¿ª»úÆô¶¯
+- ç»™è„šæœ¬æ·»åŠ å¯æ‰§è¡Œæƒé™å¹¶è®¾ç½®Zookeeperå¼€æœºå¯åŠ¨
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# chmod +x /etc/init.d/zookeeper
 [root@ali03-prod-toko-zookeeper-01 ~]# chkconfig --add zookeeper
 ```
 
-- Æô¶¯zookeeper²¢²é¿´×´Ì¬
+- å¯åŠ¨zookeeperå¹¶æŸ¥çœ‹çŠ¶æ€
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-01½Úµã×´Ì¬ĞÅÏ¢
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-01èŠ‚ç‚¹çŠ¶æ€ä¿¡æ¯
 
 ```
 [root@ali03-prod-toko-zookeeper-01 ~]# /etc/init.d/zookeeper start
@@ -199,7 +197,7 @@ Using config: /xinguang/zookeeper/bin/../conf/zoo.cfg
 Mode: follower
 ```
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-02½Úµã×´Ì¬ĞÅÏ¢
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-02èŠ‚ç‚¹çŠ¶æ€ä¿¡æ¯
 
 ```
 [root@ali04-prod-xls-zookeeper-02 ~]# /etc/init.d/zookeeper start
@@ -213,7 +211,7 @@ Using config: /xinguang/zookeeper/bin/../conf/zoo.cfg
 Mode: leader
 ```
 
-ÒÔÏÂÊÇali03-prod-toko-zookeeper-03½Úµã×´Ì¬ĞÅÏ¢
+ä»¥ä¸‹æ˜¯ali03-prod-toko-zookeeper-03èŠ‚ç‚¹çŠ¶æ€ä¿¡æ¯
 
 ```
 [root@ali04-prod-xls-zookeeper-03 ~]# /etc/init.d/zookeeper start
