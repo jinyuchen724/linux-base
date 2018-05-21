@@ -312,7 +312,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
 c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 ```
 
- ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki4.png)
+ ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki4.jpg)
 
 - 将新生成的atlassian-extras-2.4.jar上传服务重命名为atlassian-extras-decoder-v2-3.3.0.jar并将破解包拷贝至/opt/atlassian/confluence/confluence/WEB-INF/lib路径下
 
