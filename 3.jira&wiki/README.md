@@ -1,12 +1,14 @@
-| ç‰ˆæœ¬ | æ—¥æœŸ | çŠ¶æ€ | ä¿®è®¢äºº | æ‘˜è¦ |
-| - | :-: | :-: | :-: | :-: |
-| V1.0 | 2018-05-20 | åˆæ¬¡ç¼–å†™ | å¼€æº | åˆæ¬¡ç¼–å†™ |
+| °æ±¾ | ÈÕÆÚ | ×´Ì¬ | ĞŞ¶©ÈË | ÕªÒª |
+| - | :-: | :-: | :-: | :-: | -: |
+| V1.0 | 2018-05-20 | ³õ´Î±àĞ´ | »ÆÖ¾¸Õ | ³õ´Î±àĞ´ |
 
-# åŸºç¡€ç¯å¢ƒå®‰è£…
+[TOC]
 
-- å®‰è£…Javaç¯å¢ƒ
+# Ò»¡¢»ù´¡»·¾³°²×°
 
-JIRAå’ŒWIKIçš„è¿è¡Œéœ€è¦ä¾èµ–Javaç¯å¢ƒï¼Œå®‰è£…å®Œåæ‰§è¡Œ<kbd>java -version</kbd>å‘½ä»¤æ£€æŸ¥JDKæ˜¯å¦å®‰è£…æˆåŠŸã€‚å¦‚ä¸‹è¾“å‡ºä¿¡æ¯ï¼š
+- °²×°Java»·¾³
+
+JIRAºÍWIKIµÄÔËĞĞĞèÒªÒÀÀµJava»·¾³£¬°²×°ÍêºóÖ´ĞĞ<kbd>java -version</kbd>ÃüÁî¼ì²éJDKÊÇ·ñ°²×°³É¹¦¡£ÈçÏÂÊä³öĞÅÏ¢£º
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# java -version
@@ -14,7 +16,7 @@ java version "1.8.0_65"
 Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
 Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)
 ```
-> æœ¬ç¯å¢ƒä¸­çš„JDKå‡æ˜¯ä½¿ç”¨è„šæœ¬è¿›è¡Œå®‰è£…ï¼Œå®‰è£…è·¯å¾„å‡åœ¨/xinguangï¼Œä»¥ä¸‹æ˜¯è„šæœ¬å†…å®¹:
+> ±¾»·¾³ÖĞµÄJDK¾ùÊÇÊ¹ÓÃ½Å±¾½øĞĞ°²×°£¬°²×°Â·¾¶¾ùÔÚ/xinguang£¬ÒÔÏÂÊÇ½Å±¾ÄÚÈİ:
 
 ```
 #!/bin/bash
@@ -51,19 +53,19 @@ source /etc/profile
 bash
 ```
 
-- å®‰è£…MySQLæ•°æ®åº“
+- °²×°MySQLÊı¾İ¿â
 
-å…ˆæ£€æŸ¥æœ¬æœºä¸Šæ˜¯å¦å®‰è£…å…¶ä»–ç‰ˆæœ¬çš„æ•°æ®åº“
+ÏÈ¼ì²é±¾»úÉÏÊÇ·ñ°²×°ÆäËû°æ±¾µÄÊı¾İ¿â
 
 ```
-[root@ali02-prod-ops-jirawiki-01 ~]# rpm -qa | grep -i mariadb                           //æŸ¥çœ‹æœ‰æ²¡æœ‰å®‰è£…mariadb 
-[root@ali02-prod-ops-jirawiki-01 ~]# rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64    //å¦‚æœæœ‰ï¼Œå¸è½½MariaDB 
-[root@ali02-prod-ops-jirawiki-01 ~]# rpm -qa | grep -i mysql                   //æŸ¥çœ‹æœ‰æ²¡æœ‰å®‰è£…mysql,è‹¥æœ‰å¸è½½æ—§ç‰ˆæœ¬çš„Mysql
-[root@ali02-prod-ops-jirawiki-01 ~]# rm -rf /usr/lib64/mysql            //åˆ é™¤mysqlåˆ†æ•£çš„æ–‡ä»¶å¤¹
+[root@ali02-prod-ops-jirawiki-01 ~]# rpm -qa | grep -i mariadb                           //²é¿´ÓĞÃ»ÓĞ°²×°mariadb 
+[root@ali02-prod-ops-jirawiki-01 ~]# rpm -e --nodeps mariadb-libs-5.5.56-2.el7.x86_64    //Èç¹ûÓĞ£¬Ğ¶ÔØMariaDB 
+[root@ali02-prod-ops-jirawiki-01 ~]# rpm -qa | grep -i mysql                   //²é¿´ÓĞÃ»ÓĞ°²×°mysql,ÈôÓĞĞ¶ÔØ¾É°æ±¾µÄMysql
+[root@ali02-prod-ops-jirawiki-01 ~]# rm -rf /usr/lib64/mysql            //É¾³ımysql·ÖÉ¢µÄÎÄ¼ş¼Ğ
 [root@ali02-prod-ops-jirawiki-01 ~]# yum -y install autoconf
 ```
 
-ä¸‹è½½MySQL5.6å¹¶å®‰è£…
+ÏÂÔØMySQL5.6²¢°²×°
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# wget https://cdn.mysql.com//Downloads/MySQL-5.6/MySQL-5.6.40-1.el7.x86_64.rpm-bundle.tar
@@ -72,18 +74,18 @@ bash
 [root@ali02-prod-ops-jirawiki-01 mysql]# rpm -ivh MySQL-devel-5.6.40-1.el7.x86_64.rpm
 [root@ali02-prod-ops-jirawiki-01 mysql]# rpm -ivh MySQL-server-5.6.40-1.el7.x86_64.rpm 
 [root@ali02-prod-ops-jirawiki-01 ~]# systemctl start mysql && chkconfig mysql on
-[root@ali02-prod-ops-jirawiki-01 ~]# cat /root/.mysql_secret    //æŸ¥çœ‹æ•°æ®åº“çš„rootå¯†ç 
+[root@ali02-prod-ops-jirawiki-01 ~]# cat /root/.mysql_secret    //²é¿´Êı¾İ¿âµÄrootÃÜÂë
 [root@ali02-prod-ops-jirawiki-01 ~]# mysql -uroot -p
 Enter password: 
 mysql> SET PASSWORD = PASSWORD('xg@2018');
 mysql> exit
 ```
-> JIRAå’ŒWIKIçš„å®‰è£…åŒ…åŠç ´è§£åŒ…ä¸‹è½½åœ°å€ï¼š https://pan.baidu.com/s/1cxDTGJB_H0Rn0CuJTfq0-A
+> JIRAºÍWIKIµÄ°²×°°ü¼°ÆÆ½â°üÏÂÔØµØÖ·£º https://pan.baidu.com/s/1cxDTGJB_H0Rn0CuJTfq0-A
 
 
-# äºŒã€å®‰è£…JIRA 7.3.6ç‰ˆæœ¬
+# ¶ş¡¢°²×°JIRA 7.3.6°æ±¾
 
-- ç™»å½•MySQLæ§åˆ¶å°ï¼Œæ‰§è¡Œå¦‚ä¸‹å‘½ä»¤ï¼Œåˆ›å»ºJIRAæ•°æ®åº“
+- µÇÂ¼MySQL¿ØÖÆÌ¨£¬Ö´ĞĞÈçÏÂÃüÁî£¬´´½¨JIRAÊı¾İ¿â
 
 ```
 mysql> CREATE DATABASE jira DEFAULT CHARACTER SET utf8;
@@ -92,7 +94,7 @@ mysql> GRANT ALL ON jira.* TO 'jira'@localhost IDENTIFIED BY 'jira#2018' WITH GR
 mysql> FLUSH PRIVILEGES;
 ```
 
-- åœ¨my.cnfæ–‡ä»¶ä¸­é…ç½®æ•°æ®åº“å­—ç¬¦é›†å¹¶è®¾ç½®è¿æ¥æ•°
+- ÔÚmy.cnfÎÄ¼şÖĞÅäÖÃÊı¾İ¿â×Ö·û¼¯²¢ÉèÖÃÁ¬½ÓÊı
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# vim /usr/my.cnf
@@ -105,7 +107,7 @@ innodb_log_file_size=256M
 [root@ali02-prod-ops-jirawiki-01 ~]# systemctl restart mysql
 ```
 
-- ä½¿ç”¨FTPå·¥å…·ä¸Šä¼ atlassian-jira-software-7.3.6.zipæ–‡ä»¶åŒ…è‡³/xinguang/installç›®å½•å¹¶è§£å‹å‡ºæ¥
+- Ê¹ÓÃFTP¹¤¾ßÉÏ´«atlassian-jira-software-7.3.6.zipÎÄ¼ş°üÖÁ/xinguang/installÄ¿Â¼²¢½âÑ¹³öÀ´
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# unzip atlassian-jira-software-7.3.6.zip 
@@ -114,7 +116,7 @@ atlassian-jira-software-7.3.6-x64.bin   atlassian-jira-7.3.6-patch
 
 ```
 
-- è§£å‹åç»™å®‰è£…å¯æ‰§è¡Œæƒé™ï¼Œç„¶åè¿›è¡Œäº¤äº’å¼å®‰è£…ï¼Œå¦‚ä¸‹ï¼š
+- ½âÑ¹ºó¸ø°²×°¿ÉÖ´ĞĞÈ¨ÏŞ£¬È»ºó½øĞĞ½»»¥Ê½°²×°£¬ÈçÏÂ£º
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# chmod +x atlassian-jira-software-7.3.6-x64.bin
@@ -162,62 +164,62 @@ Finishing installation ...
 [root@ali02-prod-ops-jirawiki-01 install]# /etc/init.d/jira stop
 ```
 
-- å®‰è£…å®Œæˆåï¼Œæš‚æ—¶ä¸å¯åŠ¨JIRAï¼Œå°†atlassian-jira-7.3.6-patché‡Œé¢çš„ç ´è§£åŒ…æ‹·è´åˆ°æŒ‡å®šè·¯å¾„ï¼Œç„¶åå†å¯åŠ¨JIRAæœåŠ¡
+- °²×°Íê³Éºó£¬ÔİÊ±²»Æô¶¯JIRA£¬½«atlassian-jira-7.3.6-patchÀïÃæµÄÆÆ½â°ü¿½±´µ½Ö¸¶¨Â·¾¶£¬È»ºóÔÙÆô¶¯JIRA·şÎñ
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# cd atlassian-jira-7.3.6-patch/
 [root@ali02-prod-ops-jirawiki-01 atlassian-jira-7.3.6-patch]# ls
 atlassian-extras-3.2.jar  atlassian-universal-plugin-manager-plugin-2.17.13.jar  mysql-connector-java-5.1.39-bin.jar
 [root@ali02-prod-ops-jirawiki-01 atlassian-jira-7.3.6-patch]# cp atlassian-extras-3.2.jar mysql-connector-java-5.1.39-bin.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/lib/
-cp: overwrite â€˜/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-3.2.jarâ€™? y
+cp: overwrite ¡®/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras-3.2.jar¡¯? y
 [root@ali02-prod-ops-jirawiki-01 atlassian-jira-7.3.6-patch]# cp atlassian-universal-plugin-manager-plugin-2.17.13.jar /opt/atlassian/jira/atlassian-jira/WEB-INF/atlassian-bundled-plugins/
 [root@ali02-prod-ops-jirawiki-01 ~]# /etc/init.d/jira start
 ```
 
-- æœåŠ¡å¯åŠ¨åæ‰“å¼€æµè§ˆå™¨è¾“å…¥IPåœ°å€+ç«¯å£è®¿é—®ï¼ˆJIRAé»˜è®¤ç«¯å£ä¸º8080ï¼‰ï¼Œè®¿é—®åœ°å€åï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨è·³è½¬åˆ°JIRAçš„é»˜è®¤é…ç½®é¡µé¢ï¼Œåœ¨æ­¤æˆ‘ä»¬é€‰æ‹©è‡ªå®šä¹‰é…ç½®ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ·şÎñÆô¶¯ºó´ò¿ªä¯ÀÀÆ÷ÊäÈëIPµØÖ·+¶Ë¿Ú·ÃÎÊ£¨JIRAÄ¬ÈÏ¶Ë¿ÚÎª8080£©£¬·ÃÎÊµØÖ·ºó£¬ÏµÍ³»á×Ô¶¯Ìø×ªµ½JIRAµÄÄ¬ÈÏÅäÖÃÒ³Ãæ£¬ÔÚ´ËÎÒÃÇÑ¡Ôñ×Ô¶¨ÒåÅäÖÃ£¬ÈçÏÂÍ¼£º
 
-![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/2cb3c0c9-4db5-4f23-b97d-c18d567847af.png)
+ ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/jira1.png)
 
-- è®¾ç½®æ•°æ®åº“è¿æ¥ä¿¡æ¯ï¼Œåœ¨æ•°æ®åº“æ–¹é¢ï¼Œæˆ‘ä»¬é€‰æ‹©MySQLæ•°æ®åº“å³å¯ï¼Œå¡«å†™å®Œæ¯•åç›¸å…³çš„æ•°æ®åº“åœ°å€ã€ç”¨æˆ·å’Œå¯†ç åï¼Œå°±å¯ä»¥ç‚¹å‡»ä¸‹ä¸€æ­¥æŒ‰é’®ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÉèÖÃÊı¾İ¿âÁ¬½ÓĞÅÏ¢£¬ÔÚÊı¾İ¿â·½Ãæ£¬ÎÒÃÇÑ¡ÔñMySQLÊı¾İ¿â¼´¿É£¬ÌîĞ´Íê±ÏºóÏà¹ØµÄÊı¾İ¿âµØÖ·¡¢ÓÃ»§ºÍÃÜÂëºó£¬¾Í¿ÉÒÔµã»÷ÏÂÒ»²½°´Å¥£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/a8259344-ca05-45df-b894-a7d13637b77e.png)
 
-- è®¾ç½®åº”ç”¨ç¨‹åºçš„å±æ€§ï¼Œç„¶åä¸‹ä¸€æ­¥æŒ‰é’®ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÉèÖÃÓ¦ÓÃ³ÌĞòµÄÊôĞÔ£¬È»ºóÏÂÒ»²½°´Å¥£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/ecc621a2-4b78-43a7-8e77-df1b61a316b7.png)
 
-- ç‚¹å‡»ç®­å¤´å¤„çš„é“¾æ¥"ç”ŸæˆJIRAè¯•ç”¨è®¸å¯è¯"ï¼Œç„¶åè·³è½¬åˆ°å®˜ç½‘ç”³è¯·ï¼Œéœ€è¦ä½¿ç”¨è´¦å·ç™»é™†ï¼ˆå»ºè®®ä½¿ç”¨Googleè´¦å·ç™»é™†ï¼‰
+- µã»÷¼ıÍ·´¦µÄÁ´½Ó"Éú³ÉJIRAÊÔÓÃĞí¿ÉÖ¤"£¬È»ºóÌø×ªµ½¹ÙÍøÉêÇë£¬ĞèÒªÊ¹ÓÃÕËºÅµÇÂ½£¨½¨ÒéÊ¹ÓÃGoogleÕËºÅµÇÂ½£©
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/9663c7d0-351c-4c39-8b93-a467e50325fb.png)
 
-- ç”±äºæ²¡æœ‰æ­£å¼çš„Licenseï¼Œæ‰€ä»¥éœ€è¦è´¦æˆ·ç™»é™†JIRAï¼Œç„¶ååˆ©ç”¨è¿™ä¸ªè´¦å·ç”³è¯·ä¸€ä¸ªå¯ä»¥è¯•ç”¨30å¤©çš„Licenseï¼Œç‚¹å‡»"Generate License"åè·³è½¬åˆ°å¦ä¸€ä¸ªé¡µé¢ï¼Œé€‰æ‹©å¯¹åº”çš„Server ID,åœ¨å¼¹å‡ºçš„å¯¹è¯æ¡†ä¸­é€‰æ‹©"Yes"å¦‚ä¸‹ï¼š
+- ÓÉÓÚÃ»ÓĞÕıÊ½µÄLicense£¬ËùÒÔĞèÒªÕË»§µÇÂ½JIRA£¬È»ºóÀûÓÃÕâ¸öÕËºÅÉêÇëÒ»¸ö¿ÉÒÔÊÔÓÃ30ÌìµÄLicense£¬µã»÷"Generate License"ºóÌø×ªµ½ÁíÒ»¸öÒ³Ãæ£¬Ñ¡Ôñ¶ÔÓ¦µÄServer ID,ÔÚµ¯³öµÄ¶Ô»°¿òÖĞÑ¡Ôñ"Yes"ÈçÏÂ£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/bc31c66c-708c-4f9d-871a-4e9ef5bd4c36.png)
 
-- ç‚¹å‡»ä¸Šå›¾å¼¹å‡ºçš„ç¡®è®¤æ¡†åï¼Œç”Ÿæˆçš„keyä¼šè‡ªåŠ¨å¡«å……åˆ°æ–¹æ¡†å†…,å¦‚ä¸‹å›¾ï¼š
+- µã»÷ÉÏÍ¼µ¯³öµÄÈ·ÈÏ¿òºó£¬Éú³ÉµÄkey»á×Ô¶¯Ìî³äµ½·½¿òÄÚ,ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/e4ea0f2e-e0e5-4af4-ada2-f6e503e238fb.png)
 
-- è®¾ç½®ç®¡ç†å‘˜è´¦æˆ·
+- ÉèÖÃ¹ÜÀíÔ±ÕË»§
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/057cb142-43fa-444f-8424-4690676231b3.png)
 
-- æç¤ºæ˜¯å¦è®¾ç½®ç”µå­é‚®ä»¶é€šçŸ¥ï¼Œé€‰æ‹©ç¨åè®¾ç½®
+- ÌáÊ¾ÊÇ·ñÉèÖÃµç×ÓÓÊ¼şÍ¨Öª£¬Ñ¡ÔñÉÔºóÉèÖÃ
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/c412cacf-71d5-4bef-820c-027b7f48bf8c.png)
 
-åˆ°æ­¤JIRA 7.3.6è½¯ä»¶çš„å®‰è£…å°±åŸºæœ¬å®Œæˆäº†ã€‚
+µ½´ËJIRA 7.3.6Èí¼şµÄ°²×°¾Í»ù±¾Íê³ÉÁË¡£
 
-# ä¸‰ã€JIRAç”µå­é‚®ä»¶è®¾ç½®
+# Èı¡¢JIRAµç×ÓÓÊ¼şÉèÖÃ
 
-- ç™»é™†JIRAåï¼Œç‚¹å‡»å³ä¸Šè§’çš„"è®¾ç½®"â€”â€”"ç³»ç»Ÿ"â€”â€”"ç”µé‚®ï¼ˆå¤–å‘é‚®ä»¶ï¼‰"
+- µÇÂ½JIRAºó£¬µã»÷ÓÒÉÏ½ÇµÄ"ÉèÖÃ"¡ª¡ª"ÏµÍ³"¡ª¡ª"µçÓÊ£¨Íâ·¢ÓÊ¼ş£©"
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/0a9390a6-d70b-485e-9f9b-fe31a40d4681.png)
 
 
-# å››ã€å®‰è£…Wiki 6.7.3ç‰ˆæœ¬
+# ËÄ¡¢°²×°Wiki 6.7.3°æ±¾
 
-- ç™»å½•MySQLæ§åˆ¶å°ï¼Œæ‰§è¡Œå¦‚ä¸‹å‘½ä»¤ï¼Œåˆ›å»ºconfluenceæ•°æ®åº“
+- µÇÂ¼MySQL¿ØÖÆÌ¨£¬Ö´ĞĞÈçÏÂÃüÁî£¬´´½¨confluenceÊı¾İ¿â
 
 ```
 mysql> CREATE DATABASE confluence CHARACTER SET utf8 COLLATE utf8_bin;
@@ -226,7 +228,7 @@ mysql> GRANT ALL ON confluence.* TO 'wiki' @localhost IDENTIFIED BY 'wiki#2018' 
 mysql> FLUSH PRIVILEGES;
 ```
 
-- ä½¿ç”¨FTPå·¥å…·ä¸Šä¼ tlassian-confluence-wiki-6.7.3.zipæ–‡ä»¶åŒ…è‡³/xinguang/installç›®å½•å¹¶è§£å‹å‡ºæ¥
+- Ê¹ÓÃFTP¹¤¾ßÉÏ´«tlassian-confluence-wiki-6.7.3.zipÎÄ¼ş°üÖÁ/xinguang/installÄ¿Â¼²¢½âÑ¹³öÀ´
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# unzip atlassian-confluence-wiki-6.7.3.zip 
@@ -234,7 +236,7 @@ mysql> FLUSH PRIVILEGES;
 atlassian-confluence-6.7.3-x64.bin  atlassian-confluence-wiki-6.7.3-patch
 ```
 
-- è§£å‹åç»™å®‰è£…å¯æ‰§è¡Œæƒé™ï¼Œç„¶åè¿›è¡Œäº¤äº’å¼å®‰è£…ï¼Œå¦‚ä¸‹ï¼š
+- ½âÑ¹ºó¸ø°²×°¿ÉÖ´ĞĞÈ¨ÏŞ£¬È»ºó½øĞĞ½»»¥Ê½°²×°£¬ÈçÏÂ£º
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# chmod +x atlassian-confluence-6.7.3-x64.bin
@@ -280,28 +282,28 @@ Confluence 6.7.3 can be accessed at http://localhost:8090
 Finishing installation ...
 ```
 
-- æ‰“å¼€æµè§ˆå™¨è¾“å…¥IPåœ°å€+ç«¯å£ï¼ˆWIKIé»˜è®¤ç«¯å£ä¸º8090ï¼‰ï¼Œè®¿é—®åœ°å€åï¼Œç³»ç»Ÿä¼šè‡ªåŠ¨è·³è½¬åˆ°WIKIçš„é»˜è®¤é…ç½®é¡µé¢ï¼Œé€‰æ‹©"äº§å“å®‰è£…"ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ´ò¿ªä¯ÀÀÆ÷ÊäÈëIPµØÖ·+¶Ë¿Ú£¨WIKIÄ¬ÈÏ¶Ë¿ÚÎª8090£©£¬·ÃÎÊµØÖ·ºó£¬ÏµÍ³»á×Ô¶¯Ìø×ªµ½WIKIµÄÄ¬ÈÏÅäÖÃÒ³Ãæ£¬Ñ¡Ôñ"²úÆ·°²×°"£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/1836b5e1-3d27-4db9-a44f-4a749f3eea12.png)
 
-- è·å–confluenceæ‰©å±•æ’ä»¶ï¼Œå¦‚ä¸‹å›¾ï¼š
+- »ñÈ¡confluenceÀ©Õ¹²å¼ş£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/e917064b-279e-45d5-a7fe-b0fdc9abe334.png)
 
-- è¾“å…¥æˆæƒç é¡µé¢ï¼Œå…ˆä¿å­˜"æœåŠ¡å™¨ ID",ç„¶ååœæ‰confluenceæœåŠ¡ï¼Œè¿›è¡Œç ´è§£æ­¥éª¤
+- ÊäÈëÊÚÈ¨ÂëÒ³Ãæ£¬ÏÈ±£´æ"·şÎñÆ÷ ID",È»ºóÍ£µôconfluence·şÎñ£¬½øĞĞÆÆ½â²½Öè
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/7e618542-27ec-4811-a45f-d95a61151a2d.png)
 
 ```
 [root@ali02-prod-ops-jirawiki-01 install]# /etc/init.d/confluence stop
 
-[root@ali02-prod-ops-jirawiki-01 ~]# cp /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar.$(date +%F)    //å…ˆå°†atlassian-extras-decoder-v2-3.3.0.jaråšä¸ªå¤‡ä»½
-[root@ali02-prod-ops-jirawiki-01 ~]# mv /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar /root/atlassian-extras-2.4.jar    //å°†atlassian-extras-decoder-v2-3.3.0.jaré‡å‘½åä¸ºatlassian-extras-2.4.jar
-[root@ali02-prod-ops-jirawiki-01 ~]# sz atlassian-extras-2.4.jar     //å°†atlassian-extras-2.4.jarbaoæ‹·è´åˆ°Windows
-[root@ali02-prod-ops-jirawiki-01 ~]# sz /xinguang/install/atlassian-confluence-wiki-6.7.3-patch/confluence_keygen.jar  //å°†è¡¥ä¸æ–‡ä»¶ç›®å½•çš„confluence_keygen.jarä¹Ÿæ‹·è´è‡³Windowsä¸‹
+[root@ali02-prod-ops-jirawiki-01 ~]# cp /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar.$(date +%F)    //ÏÈ½«atlassian-extras-decoder-v2-3.3.0.jar×ö¸ö±¸·İ
+[root@ali02-prod-ops-jirawiki-01 ~]# mv /opt/atlassian/confluence/confluence/WEB-INF/lib/atlassian-extras-decoder-v2-3.3.0.jar /root/atlassian-extras-2.4.jar    //½«atlassian-extras-decoder-v2-3.3.0.jarÖØÃüÃûÎªatlassian-extras-2.4.jar
+[root@ali02-prod-ops-jirawiki-01 ~]# sz atlassian-extras-2.4.jar     //½«atlassian-extras-2.4.jarbao¿½±´µ½Windows
+[root@ali02-prod-ops-jirawiki-01 ~]# sz /xinguang/install/atlassian-confluence-wiki-6.7.3-patch/confluence_keygen.jar  //½«²¹¶¡ÎÄ¼şÄ¿Â¼µÄconfluence_keygen.jarÒ²¿½±´ÖÁWindowsÏÂ
 ```
 
-- åœ¨Windowsä¸‹ï¼Œç”ŸæˆLicense Keyï¼Œæ“ä½œæ–¹æ³•å¦‚ä¸‹ï¼š
+- ÔÚWindowsÏÂ£¬Éú³ÉLicense Key£¬²Ù×÷·½·¨ÈçÏÂ£º
 
 ```
 c:\Users\XG\Desktop>java -version
@@ -314,7 +316,7 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/cb52d616-7ba5-48d4-8978-4ab7fe843d8b.jpg)
 
-- å°†æ–°ç”Ÿæˆçš„atlassian-extras-2.4.jarä¸Šä¼ æœåŠ¡é‡å‘½åä¸ºatlassian-extras-decoder-v2-3.3.0.jarå¹¶å°†ç ´è§£åŒ…æ‹·è´è‡³/opt/atlassian/confluence/confluence/WEB-INF/libè·¯å¾„ä¸‹
+- ½«ĞÂÉú³ÉµÄatlassian-extras-2.4.jarÉÏ´«·şÎñÖØÃüÃûÎªatlassian-extras-decoder-v2-3.3.0.jar²¢½«ÆÆ½â°ü¿½±´ÖÁ/opt/atlassian/confluence/confluence/WEB-INF/libÂ·¾¶ÏÂ
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# mv atlassian-extras-2.4.jar atlassian-extras-decoder-v2-3.3.0.jar
@@ -322,46 +324,46 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 [root@ali02-prod-ops-jirawiki-01 ~]# cd /xinguang/install/atlassian-confluence-wiki-6.7.3-patch/
 [root@ali02-prod-ops-jirawiki-01 atlassian-confluence-wiki-6.7.3-patch]# cp Confluence-6.7.0-language-pack-zh_CN.jar mysql-connector-java-5.1.39-bin.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/
 
-[root@ali02-prod-ops-jirawiki-01 atlassian-confluence-wiki-6.7.3-patch]# /etc/init.d/confluence start    //å¯åŠ¨confluenceæœåŠ¡
+[root@ali02-prod-ops-jirawiki-01 atlassian-confluence-wiki-6.7.3-patch]# /etc/init.d/confluence start    //Æô¶¯confluence·şÎñ
 ```
 
-- å†æ¬¡æ‰“å¼€æµè§ˆå™¨è¾“å…¥IPåœ°å€+ç«¯å£ï¼ˆWIKIé»˜è®¤ç«¯å£ä¸º8090ï¼‰è®¿é—®åœ°å€ï¼Œåœ¨æ–¹æ¡†å†…è¾“å…¥ç”Ÿæˆçš„keyæ–‡ä»¶ï¼Œç„¶åä¸‹ä¸€æ­¥ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÔÙ´Î´ò¿ªä¯ÀÀÆ÷ÊäÈëIPµØÖ·+¶Ë¿Ú£¨WIKIÄ¬ÈÏ¶Ë¿ÚÎª8090£©·ÃÎÊµØÖ·£¬ÔÚ·½¿òÄÚÊäÈëÉú³ÉµÄkeyÎÄ¼ş£¬È»ºóÏÂÒ»²½£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/2b918844-11d1-424e-93e2-b96581a9f31b.png)
 
-- è®¾ç½®æ•°æ®åº“ï¼Œè¿™é‡Œé€‰æ‹©"æˆ‘è‡ªå·±çš„æ•°æ®åº“"ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÉèÖÃÊı¾İ¿â£¬ÕâÀïÑ¡Ôñ"ÎÒ×Ô¼ºµÄÊı¾İ¿â"£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/3996457e-a680-42d9-bff6-9b687179c4fd.png)
 
-- è®¾ç½®æ•°æ®åº“è¿æ¥ä¿¡æ¯ï¼Œé€‰æ‹©MySQLæ•°æ®åº“å³å¯ï¼Œå¡«å†™å®Œæ¯•åç›¸å…³çš„æ•°æ®åº“åœ°å€ã€ç”¨æˆ·å’Œå¯†ç åï¼Œå°±å¯ä»¥ç‚¹å‡»ä¸‹ä¸€æ­¥æŒ‰é’®ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÉèÖÃÊı¾İ¿âÁ¬½ÓĞÅÏ¢£¬Ñ¡ÔñMySQLÊı¾İ¿â¼´¿É£¬ÌîĞ´Íê±ÏºóÏà¹ØµÄÊı¾İ¿âµØÖ·¡¢ÓÃ»§ºÍÃÜÂëºó£¬¾Í¿ÉÒÔµã»÷ÏÂÒ»²½°´Å¥£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/1061c17c-1ce4-45d3-98c2-3a8ef4ccf362.png)
 
-- åŠ è½½å†…å®¹ï¼Œé€‰æ‹©"åŠ è½½"ç¤ºèŒƒç«™ç‚¹"",å¦‚ä¸‹å›¾ï¼š
+- ¼ÓÔØÄÚÈİ£¬Ñ¡Ôñ"¼ÓÔØ"Ê¾·¶Õ¾µã"",ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/59f22203-4baf-4e0c-8333-5df2753a5ba7.png)
 
-- é…ç½®ç”¨æˆ·ç®¡ç†ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÅäÖÃÓÃ»§¹ÜÀí£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/e23af0e9-7e4c-4a5f-8d9b-6bf989d5cbd4.png)
 
-- é…ç½®ç³»ç»Ÿç®¡ç†å‘˜è´¦æˆ·ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ÅäÖÃÏµÍ³¹ÜÀíÔ±ÕË»§£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/e69d0693-f928-443f-afdf-8d1a353eb666.png)
 
-- è®¾ç½®å®Œæˆ,è‡³æ­¤Wiki 6.7.3å°±å®‰è£…å®Œæˆäº†
+- ÉèÖÃÍê³É,ÖÁ´ËWiki 6.7.3¾Í°²×°Íê³ÉÁË
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/4e273213-73b4-4d13-b580-daf7f581c3d2.png)
 
-# äº”ã€WIKIé‚®ä»¶æœåŠ¡å™¨é…ç½®
+# Îå¡¢WIKIÓÊ¼ş·şÎñÆ÷ÅäÖÃ
 
-- å°†${HOME}/confluence/confluence/WEB-INF/lib/mail-1.4.5.jar è½¬ç§»åˆ°${HOME}/confluence/lib/ç›®å½•ä¸‹
+- ½«${HOME}/confluence/confluence/WEB-INF/lib/mail-1.4.5.jar ×ªÒÆµ½${HOME}/confluence/lib/Ä¿Â¼ÏÂ
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# mv /opt/atlassian/confluence/confluence/WEB-INF/lib/mail-1.4.5.jar /opt/atlassian/confluence/lib/
 ```
 
-- ä¿®æ”¹server.xmlæ–‡ä»¶ï¼Œåœ¨</Context>ä¸Šä¸€è¡Œæ·»åŠ é‚®ç®±é…ç½®
+- ĞŞ¸Äserver.xmlÎÄ¼ş£¬ÔÚ</Context>ÉÏÒ»ĞĞÌí¼ÓÓÊÏäÅäÖÃ
 
 ```
 [root@ali02-prod-ops-jirawiki-01 ~]# vim /opt/atlassian/confluence/conf/server.xml
@@ -377,14 +379,14 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
  23                            mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory" />
 ```
 
-- ç™»é™†WIKIåï¼Œç‚¹å‡»å³ä¸Šè§’çš„"è®¾ç½®"â€”â€”"ä¸€èˆ¬é…ç½®"â€”â€”"é‚®ä»¶æœåŠ¡å™¨"â€”â€”"å¢åŠ æ–°çš„SMTPé‚®ä»¶æœåŠ¡å™¨"
+- µÇÂ½WIKIºó£¬µã»÷ÓÒÉÏ½ÇµÄ"ÉèÖÃ"¡ª¡ª"Ò»°ãÅäÖÃ"¡ª¡ª"ÓÊ¼ş·şÎñÆ÷"¡ª¡ª"Ôö¼ÓĞÂµÄSMTPÓÊ¼ş·şÎñÆ÷"
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/c3b40d21-739c-479d-9f3d-7f23a2031a96.png)
 
-- Confluenceè‡ªå¸¦çš„é‚®ä»¶æœåŠ¡é…ç½®ä¸æ”¯æŒè…¾è®¯é‚®ç®±ï¼Œå› æ­¤æˆ‘ä»¬éœ€è¦ä½¿ç”¨JNDIæ–¹å¼:
+- Confluence×Ô´øµÄÓÊ¼ş·şÎñÅäÖÃ²»Ö§³ÖÌÚÑ¶ÓÊÏä£¬Òò´ËÎÒÃÇĞèÒªÊ¹ÓÃJNDI·½Ê½:
  
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/3965340a-b2cf-45e9-aef4-5ebfc60e5474.png)
 
-- å‘é€æµ‹è¯•é‚®ä»¶ï¼Œå¦‚ä¸‹å›¾ï¼š
+- ·¢ËÍ²âÊÔÓÊ¼ş£¬ÈçÏÂÍ¼£º
 
 ![](/web_upload/markdown/picture/81eeddbf-5bf1-4d6c-82d7-8f93e55be89d/a094b72c-d1e3-4afa-bbd9-5789854e62b4.png)
