@@ -5,7 +5,7 @@
 # 一、集群环境说明 
 
 | 主机名称 | 操作系统类型 | 内网IP地址 |
-| - | :-: | :-: | -: |
+| - | - | - |
 | ali03-prod-toko-zookeeper-01 | CentOS Linux release 7.4 | 10.11.11.22 |
 | ali03-prod-toko-zookeeper-02 | CentOS Linux release 7.4 | 10.11.11.27 |
 | ali03-prod-toko-zookeeper-03 | CentOS Linux release 7.4 | 10.11.11.28 |
@@ -22,6 +22,7 @@ java version "1.8.0_65"
 Java(TM) SE Runtime Environment (build 1.8.0_65-b17)
 Java HotSpot(TM) 64-Bit Server VM (build 25.65-b01, mixed mode)
 ```
+
 > 本环境中的JDK均是使用脚本进行安装，安装路径均在/xinguang/下 安装过程就略过。以下是脚本内容:
 
 ```
