@@ -1,51 +1,51 @@
-# Centos7²¿Êğ±¾µØ¾ÖÓòÍøyumÔ´
+# Centos7éƒ¨ç½²æœ¬åœ°å±€åŸŸç½‘yumæº
 
-| °æ±¾| ÈÕÆÚ | ×´Ì¬ |   ĞŞ¶©ÈË  |    ÕªÒª  |
+| ç‰ˆæœ¬| æ—¥æœŸ | çŠ¶æ€ |   ä¿®è®¢äºº  |    æ‘˜è¦  |
 | ------ | ----- | ----- | ------- | ------ |
-| v1.1  | 2017-07-10  | ´´½¨ |  ¿ªÔ´ |  yum²Ö¿â |
+| v1.1  | 2017-07-10  | åˆ›å»º |  å¼€æº |  yumä»“åº“ |
 
-Èç¹û¹ÜÀí´óÁ¿µÄ·şÎñÆ÷£¬rpmÈí¼ş°üµÄ°²×°ºÍ¸üĞÂ,¶¼ĞèÒª·ÃÎÊÁ¬½ÓInternet£¬»áÀË·Ñ´ø¿í,²¢ÇÒ²»°²È« ÎªÁË±ÜÃâÉÏÊöÇé¿öµÄ±×¶Ë£¬
-ÎÒÃÇ¿ÉÒÔÍ¨¹ı×Ô¼º´´½¨±¾µØµÄrepository£¨²Ö¿â£©µÄ·½·¨À´ÊµÏÖÈí¼ş°üµÄ¿ìËÙ°²×°ºÍ¸üĞÂ. 
+å¦‚æœç®¡ç†å¤§é‡çš„æœåŠ¡å™¨ï¼Œrpmè½¯ä»¶åŒ…çš„å®‰è£…å’Œæ›´æ–°,éƒ½éœ€è¦è®¿é—®è¿æ¥Internetï¼Œä¼šæµªè´¹å¸¦å®½,å¹¶ä¸”ä¸å®‰å…¨ ä¸ºäº†é¿å…ä¸Šè¿°æƒ…å†µçš„å¼Šç«¯ï¼Œ
+æˆ‘ä»¬å¯ä»¥é€šè¿‡è‡ªå·±åˆ›å»ºæœ¬åœ°çš„repositoryï¼ˆä»“åº“ï¼‰çš„æ–¹æ³•æ¥å®ç°è½¯ä»¶åŒ…çš„å¿«é€Ÿå®‰è£…å’Œæ›´æ–°. 
 
-# ²¿Êğ»·¾³
+# éƒ¨ç½²ç¯å¢ƒ
 
-| Ö÷»ú   |   ½ÇÉ«   |   ²Ù×÷ÏµÍ³ |   Èí¼ş°æ±¾  |    ±¸×¢  |
+| ä¸»æœº   |   è§’è‰²   |   æ“ä½œç³»ç»Ÿ |   è½¯ä»¶ç‰ˆæœ¬  |    å¤‡æ³¨  |
 | ------ | ----- | ----- | ------- | ------ |
-| hz01-online-ops-yum-01(172.16.8.10)  | yum-master  |   Centos 7.3(x86-64)|  httpd¡¢createrepo¡¢reposync |  Ö÷·şÎñÆ÷|
+| hz01-online-ops-yum-01(172.16.8.10)  | yum-master  |   Centos 7.3(x86-64)|  httpdã€createrepoã€reposync |  ä¸»æœåŠ¡å™¨|
 
 
-- »ñÈ¡°¢ÀïÔÆ¾µÏñrepoµ½±¾µØ
+- è·å–é˜¿é‡Œäº‘é•œåƒrepoåˆ°æœ¬åœ°
 
 ```
 [hz01-online-ops-yum-01 /opt]# wget -O /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo
 ```
 
-- °²×°httpd·şÎñ£¬ÓÃÓÚÌá¹©´æ·ÅyumÔ´
+- å®‰è£…httpdæœåŠ¡ï¼Œç”¨äºæä¾›å­˜æ”¾yumæº
 
 ```
 [hz01-online-ops-yum-01 /opt]# yum install httpd -y 
 [hz01-online-ops-yum-01 /opt]# service httpd start
 ```
 
-Ê¹ÓÃÄ¬ÈÏÅäÖÃ¼´¿É£¬Èç¹ûÓĞÌØÊâĞèÇó¿ÉÒÔĞŞ¸ÄÅäÖÃÎÄ¼ş/etc/httpd/conf/httpd.conf¡£httpÄ¬ÈÏ¼ÒÄ¿Â¼/var/www/html
+ä½¿ç”¨é»˜è®¤é…ç½®å³å¯ï¼Œå¦‚æœæœ‰ç‰¹æ®Šéœ€æ±‚å¯ä»¥ä¿®æ”¹é…ç½®æ–‡ä»¶/etc/httpd/conf/httpd.confã€‚httpé»˜è®¤å®¶ç›®å½•/var/www/html
 
-- °²×°yum-utilsÌá¹©reporsync·şÎñ
+- å®‰è£…yum-utilsæä¾›reporsyncæœåŠ¡
 
 ```
 [hz01-online-ops-yum-01 /opt]# yum install yum-utils -y
 ```
 
-- Ñ¡ÔñÖ¸¶¨²Ö¿â±êÊ¶×÷Îª±¾µØyumÔ´
+- é€‰æ‹©æŒ‡å®šä»“åº“æ ‡è¯†ä½œä¸ºæœ¬åœ°yumæº
 
-> Ö´ĞĞyum repolistÃüÁî²é¿´yum²Ö¿â±êÊ¶
+> æ‰§è¡Œyum repolistå‘½ä»¤æŸ¥çœ‹yumä»“åº“æ ‡è¯†
 
 ```
 [hz01-online-ops-yum-01 /opt]#yum repolist
-ÒÑ¼ÓÔØ²å¼ş£ºfastestmirror
+å·²åŠ è½½æ’ä»¶ï¼šfastestmirror
 Loading mirror speeds from cached hostfile
-Ô´±êÊ¶                                                                                              Ô´Ãû³Æ                                                                                                                      ×´Ì¬
+æºæ ‡è¯†                                                                                              æºåç§°                                                                                                                      çŠ¶æ€
 centos-openshift-origin                                                                             CentOS OpenShift Origin                                                                                                        185
-epel/x86_64      #´ËÎª°¢ÀïÔÆµÄÔ´                                                                    Extra Packages for Enterprise Linux 7 - x86_64                                                                              12,542
+epel/x86_64      #æ­¤ä¸ºé˜¿é‡Œäº‘çš„æº                                                                    Extra Packages for Enterprise Linux 7 - x86_64                                                                              12,542
 local-centosbase7                                                                                   CentOS-7 - Base                                                                                                              9,363
 local-centosextras7                                                                                 CentOS-7 - extras                                                                                                              449
 local-centosplus7                                                                                   CentOS-7 - plus                                                                                                                101
@@ -59,18 +59,18 @@ local-zabbix7                                                                   
 repolist: 38,652
 ```
 
-> Ê¹ÓÃepel×÷Îª±¾µØyumÔ´£¬ÓÃ/var/www/html×÷Îªyum²Ö¿â¸ùÄ¿Â¼
+> ä½¿ç”¨epelä½œä¸ºæœ¬åœ°yumæºï¼Œç”¨/var/www/htmlä½œä¸ºyumä»“åº“æ ¹ç›®å½•
 
 ```
 [hz01-online-ops-yum-01 /opt]#reposync -r epel -p /var/www/html/
 ```
 
-> ÃüÁîÖ´ĞĞÍê±Ïºó£¬»á½«°¢ÀïÔÆÖĞµÄepelÔ´Í¬²½µ½±¾µØ/var/www/htmlÖĞ,ÔÚ/var/www/htmlÖĞ×Ô¶¯´´½¨epelÄ¿Â¼ÓÃÓÚ´æ·Årpm°ü£»µÚÒ»´ÎÍ¬²½ÊÇÊ±¼ä¿ÉÄÜ½Ï³¤£¬´ó¸Å1W¶à¸örpm°ü¡£
+> å‘½ä»¤æ‰§è¡Œå®Œæ¯•åï¼Œä¼šå°†é˜¿é‡Œäº‘ä¸­çš„epelæºåŒæ­¥åˆ°æœ¬åœ°/var/www/htmlä¸­,åœ¨/var/www/htmlä¸­è‡ªåŠ¨åˆ›å»ºepelç›®å½•ç”¨äºå­˜æ”¾rpmåŒ…ï¼›ç¬¬ä¸€æ¬¡åŒæ­¥æ˜¯æ—¶é—´å¯èƒ½è¾ƒé•¿ï¼Œå¤§æ¦‚1Wå¤šä¸ªrpmåŒ…ã€‚
 
-- createrepo ÃüÁî´´¶Ô/var/www/html/epelÏÂµÄ rpm °ü ´´½¨Îª±¾µØµÄ YUM ²Ö¿â£¬Ä¿µÄÊÇÎªÉú³ÉrepodataÄ¿Â¼²¢×Ô¶¯´´½¨Ë÷ÒıĞÅÏ¢
+- createrepo å‘½ä»¤åˆ›å¯¹/var/www/html/epelä¸‹çš„ rpm åŒ… åˆ›å»ºä¸ºæœ¬åœ°çš„ YUM ä»“åº“ï¼Œç›®çš„æ˜¯ä¸ºç”Ÿæˆrepodataç›®å½•å¹¶è‡ªåŠ¨åˆ›å»ºç´¢å¼•ä¿¡æ¯
 
 ```
-[hz01-online-ops-yum-01 /opt]#createrepo -pdo /var/www/html/epel/ /var/www/html/epel/     #µÚÒ»¸öÄ¿Â¼ÊÇrepodata´æ·ÅÄ¿Â¼£¬µÚ¶ş¸öÄ¿Â¼ÊÇĞèÒªÉú³ÉË÷ÒıĞÅÏ¢yumÔ´²Ö¿âÄ¿Â¼
+[hz01-online-ops-yum-01 /opt]#createrepo -pdo /var/www/html/epel/ /var/www/html/epel/     #ç¬¬ä¸€ä¸ªç›®å½•æ˜¯repodataå­˜æ”¾ç›®å½•ï¼Œç¬¬äºŒä¸ªç›®å½•æ˜¯éœ€è¦ç”Ÿæˆç´¢å¼•ä¿¡æ¯yumæºä»“åº“ç›®å½•
 Spawning worker 0 with 1572 pkgs
 Spawning worker 1 with 1572 pkgs
 Spawning worker 2 with 1571 pkgs
@@ -87,78 +87,82 @@ Generating sqlite DBs
 Sqlite DBs complete
 
 [hz01-online-ops-yum-01 /opt]#ll /var/www/html/epel/repodata/
-×ÜÓÃÁ¿ 36132
--rw-r--r-- 1 root root 11026375 5ÔÂ  22 09:53 0935db2c5c884bf50d253da67d459207e8d6be8ef211ea66384de969238df4e4-filelists.sqlite.bz2
--rw-r--r-- 1 root root  3185280 5ÔÂ  22 09:52 20f75a7c2ef859771944f4abc351b8b8843111a43311e717e2f38458e0347411-other.sqlite.bz2
--rw-r--r-- 1 root root  6630057 5ÔÂ  22 09:53 2f81c07f7dbf491f09cd29dd9f830f0ca09d73b719bdb6c36dac38dd64434b97-primary.sqlite.bz2
--rw-r--r-- 1 root root 10240542 5ÔÂ  22 09:52 381807e2fa40041857d8bb57ab8c74879f16227d372ee286e76100240b02b823-filelists.xml.gz
--rw-r--r-- 1 root root  3636059 5ÔÂ  22 09:52 7f9ec5b7b8e1d98b4611b8f6a18f06c197e6bb999f78626c048ea3a90c1e2202-primary.xml.gz
--rw-r--r-- 1 root root  2269109 5ÔÂ  22 09:52 8d2c397b4363b2e7e3524eeff348695a21185b8d79a20e1ebd04b8b0f92a6b4d-other.xml.gz
--rw-r--r-- 1 root root     3014 5ÔÂ  22 09:53 repomd.xml
+æ€»ç”¨é‡ 36132
+-rw-r--r-- 1 root root 11026375 5æœˆ  22 09:53 0935db2c5c884bf50d253da67d459207e8d6be8ef211ea66384de969238df4e4-filelists.sqlite.bz2
+-rw-r--r-- 1 root root  3185280 5æœˆ  22 09:52 20f75a7c2ef859771944f4abc351b8b8843111a43311e717e2f38458e0347411-other.sqlite.bz2
+-rw-r--r-- 1 root root  6630057 5æœˆ  22 09:53 2f81c07f7dbf491f09cd29dd9f830f0ca09d73b719bdb6c36dac38dd64434b97-primary.sqlite.bz2
+-rw-r--r-- 1 root root 10240542 5æœˆ  22 09:52 381807e2fa40041857d8bb57ab8c74879f16227d372ee286e76100240b02b823-filelists.xml.gz
+-rw-r--r-- 1 root root  3636059 5æœˆ  22 09:52 7f9ec5b7b8e1d98b4611b8f6a18f06c197e6bb999f78626c048ea3a90c1e2202-primary.xml.gz
+-rw-r--r-- 1 root root  2269109 5æœˆ  22 09:52 8d2c397b4363b2e7e3524eeff348695a21185b8d79a20e1ebd04b8b0f92a6b4d-other.xml.gz
+-rw-r--r-- 1 root root     3014 5æœˆ  22 09:53 repomd.xml
 ```
 
-- ÑéÖ¤±¾µØyumÔ´ÊÇ·ñÄÜÕı³£Ê¹ÓÃ£º
+- éªŒè¯æœ¬åœ°yumæºæ˜¯å¦èƒ½æ­£å¸¸ä½¿ç”¨ï¼š
 
-> µÇÂ¼ÆäËûÄÚÍøÆäËû·şÎñÆ÷£¬ÒªÄÜÓëyumÔ´·şÎñÆ÷Í¨ĞÅ£»±àĞ´repoÎÄ¼ş£º
+> ç™»å½•å…¶ä»–å†…ç½‘å…¶ä»–æœåŠ¡å™¨ï¼Œè¦èƒ½ä¸yumæºæœåŠ¡å™¨é€šä¿¡ï¼›ç¼–å†™repoæ–‡ä»¶ï¼š
 
-½«ËùÓĞrepoÎÄ¼şÉ¾³ı´´½¨ĞÂµÄrepoÎÄ¼ş
+å°†æ‰€æœ‰repoæ–‡ä»¶åˆ é™¤åˆ›å»ºæ–°çš„repoæ–‡ä»¶
 ```
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]#yum repolist
-ÒÑ¼ÓÔØ²å¼ş£ºfastestmirror
+å·²åŠ è½½æ’ä»¶ï¼šfastestmirror
 Determining fastest mirrors
 repolist: 0
 
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]#vim epel7-local.repo
-
+[epel]
+name=epel7-local
+baseurl=http://172.16.8.42/epel
+enabled=1
+gpgcheck=0
 ```
 
-- ÑéÖ¤ÊÇ·ñ¼ÓÔØ³É¹¦
+- éªŒè¯æ˜¯å¦åŠ è½½æˆåŠŸ
 
 ```
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]# yum clean all
-ÒÑ¼ÓÔØ²å¼ş£ºfastestmirror
-ÕıÔÚÇåÀíÈí¼şÔ´£º epel
+å·²åŠ è½½æ’ä»¶ï¼šfastestmirror
+æ­£åœ¨æ¸…ç†è½¯ä»¶æºï¼š epel
 Cleaning up everything
 Cleaning up list of fastest mirrors
 
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]# yum makecache
-ÒÑ¼ÓÔØ²å¼ş£ºfastestmirror
+å·²åŠ è½½æ’ä»¶ï¼šfastestmirror
 epel                                                                                                                                                                                                           | 2.9 kB  00:00:00     
 (1/3): epel/primary_db                                                                                                                                                                                         | 6.3 MB  00:00:00     
 (2/3): epel/other_db                                                                                                                                                                                           | 3.0 MB  00:00:00     
 (3/3): epel/filelists_db                                                                                                                                                                                       |  11 MB  00:00:01     
 Determining fastest mirrors
-ÔªÊı¾İ»º´æÒÑ½¨Á¢
+å…ƒæ•°æ®ç¼“å­˜å·²å»ºç«‹
 
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]# yum repolist
-ÒÑ¼ÓÔØ²å¼ş£ºfastestmirror
+å·²åŠ è½½æ’ä»¶ï¼šfastestmirror
 Loading mirror speeds from cached hostfile
-Ô´±êÊ¶                                                                                                       Ô´Ãû³Æ                                                                                                             ×´Ì¬
+æºæ ‡è¯†                                                                                                       æºåç§°                                                                                                             çŠ¶æ€
 epel                                                                                                         epel7-local                                                                                                        12,570
 repolist: 12,570
 ```
 
-- ¶¨Ê±Í¬²½
+- å®šæ—¶åŒæ­¥
 
 ```
 vim /root/yum-update.sh
 #!/bin/bash
 
 datetime=`date +"%Y-%m-%d"`
-exec > /var/log/epel.log¡¡¡¡#Í¬²½ÈÕÖ¾Êä³ö
-reposync -d -r epel -p /var/www/html/  ¡¡¡¡#Í¬²½¾µÏñÔ´
+exec > /var/log/epel.logã€€ã€€#åŒæ­¥æ—¥å¿—è¾“å‡º
+reposync -d -r epel -p /var/www/html/  ã€€ã€€#åŒæ­¥é•œåƒæº
 if [ $? -eq 0 ];then
-    createrepo --update  /var/www/html/epel ¡¡¡¡#Ã¿´ÎÌí¼ÓĞÂµÄrpmÊ±,±ØĞë¸üĞÂepelË÷ÒıĞÅÏ¢
+    createrepo --update  /var/www/html/epel ã€€ã€€#æ¯æ¬¡æ·»åŠ æ–°çš„rpmæ—¶,å¿…é¡»æ›´æ–°epelç´¢å¼•ä¿¡æ¯
     echo "SUCESS: $datetime epel update successful"else
     echo "ERROR: $datetime epel update failed"fi
-#¶¨Ê±ÈÎÎñ£ºÃ¿ÖÜÁùÁè³¿ÈıµãÍ¬²½yumÔ´
+#å®šæ—¶ä»»åŠ¡ï¼šæ¯å‘¨å…­å‡Œæ™¨ä¸‰ç‚¹åŒæ­¥yumæº
 crontab -e
 0 3 * * 6 /bin/bash /root/yum-update.sh
 ```
 
-- Ìí¼ÓsaltstackÔ´
+- æ·»åŠ saltstackæº
 
-> Ê×ÏÈÈ¥¹ÙÍø»ñÈ¡saltstackµÄrepo
+> é¦–å…ˆå»å®˜ç½‘è·å–saltstackçš„repo
 
 ```
 [hz01-online-ops-yum-01 /opt]#cat saltstack.repo 
@@ -172,12 +176,12 @@ gpgkey=https://repo.saltstack.com/yum/redhat/$releasever/$basearch/latest/SALTST
 
 ```
 
-> ½«¹ÙÍøµÄÔ´Í¬²½µ½±¾µØ
+> å°†å®˜ç½‘çš„æºåŒæ­¥åˆ°æœ¬åœ°
 ```
 [hz01-online-ops-yum-01 /opt]#reposync -r saltstack-repo -p /var/www/html/
 ```
 
-> Éú³ÉË÷ÒıÎÄ¼ş
+> ç”Ÿæˆç´¢å¼•æ–‡ä»¶
 ```
 [hz01-online-ops-yum-01 /opt]#createrepo -pdo /var/www/html/saltstack-repo/ /var/www/html/saltstack-repo/
 Spawning worker 0 with 10 pkgs
@@ -196,17 +200,17 @@ Generating sqlite DBs
 Sqlite DBs complete
 
 [hz01-online-ops-yum-01 /opt]#ll /var/www/html/saltstack-repo/repodata/
-×ÜÓÃÁ¿ 268
--rw-r--r-- 1 root root 76839 5ÔÂ  22 13:24 0318c5a104feb4541c3eceba4a0da53b8956688fc3465909b42287e249beb82b-filelists.xml.gz
--rw-r--r-- 1 root root 87189 5ÔÂ  22 13:24 055703cdbd83ee9b537db585998e5886eb9dd3032de2a9fb917043c862a177a3-filelists.sqlite.bz2
--rw-r--r-- 1 root root 16937 5ÔÂ  22 13:24 0aa49b095b4620c2108e9f7c0e0f8186f086d07ddd1e667e14e1edbdbe40163b-other.xml.gz
--rw-r--r-- 1 root root 31871 5ÔÂ  22 13:24 4c6cf849557022c8c1c08c83ec9f458109a644a761b68497d1932f099be053e4-primary.sqlite.bz2
--rw-r--r-- 1 root root 26612 5ÔÂ  22 13:24 f03715e896fc4b9db7b2442801cf7bbde82e8bc316c06ee4d99154cc05ebf9f7-other.sqlite.bz2
--rw-r--r-- 1 root root 19677 5ÔÂ  22 13:24 fe7eac489d97d90593f17e6d19ae19c615822a763072df970f4e587f4774eb39-primary.xml.gz
--rw-r--r-- 1 root root  2988 5ÔÂ  22 13:24 repomd.xml
+æ€»ç”¨é‡ 268
+-rw-r--r-- 1 root root 76839 5æœˆ  22 13:24 0318c5a104feb4541c3eceba4a0da53b8956688fc3465909b42287e249beb82b-filelists.xml.gz
+-rw-r--r-- 1 root root 87189 5æœˆ  22 13:24 055703cdbd83ee9b537db585998e5886eb9dd3032de2a9fb917043c862a177a3-filelists.sqlite.bz2
+-rw-r--r-- 1 root root 16937 5æœˆ  22 13:24 0aa49b095b4620c2108e9f7c0e0f8186f086d07ddd1e667e14e1edbdbe40163b-other.xml.gz
+-rw-r--r-- 1 root root 31871 5æœˆ  22 13:24 4c6cf849557022c8c1c08c83ec9f458109a644a761b68497d1932f099be053e4-primary.sqlite.bz2
+-rw-r--r-- 1 root root 26612 5æœˆ  22 13:24 f03715e896fc4b9db7b2442801cf7bbde82e8bc316c06ee4d99154cc05ebf9f7-other.sqlite.bz2
+-rw-r--r-- 1 root root 19677 5æœˆ  22 13:24 fe7eac489d97d90593f17e6d19ae19c615822a763072df970f4e587f4774eb39-primary.xml.gz
+-rw-r--r-- 1 root root  2988 5æœˆ  22 13:24 repomd.xml
 ```
 
-ÔÚËæ±ãÒ»¸öÄÚÍø»úÆ÷ÉÏÅäÖÃsaltÔ´
+åœ¨éšä¾¿ä¸€ä¸ªå†…ç½‘æœºå™¨ä¸Šé…ç½®saltæº
 
 ```
 [root@hz01-online-ops-opennode-03 /etc/yum.repos.d]#cat epel7-local.repo 
@@ -239,7 +243,7 @@ salt-ssh.noarch                         2016.11.9-2.el7                salstack
 salt-syndic.noarch                      2016.11.9-2.el7                salstack 
 ```
 
-Èç¹ûÆäËûĞèÒªÎÈ¶¨°æ±¾µÄyumÔ´·½·¨ºÍÕâ¸öÊÇÒ»ÑùµÄ¡£
+å¦‚æœå…¶ä»–éœ€è¦ç¨³å®šç‰ˆæœ¬çš„yumæºæ–¹æ³•å’Œè¿™ä¸ªæ˜¯ä¸€æ ·çš„ã€‚
 
 
 
