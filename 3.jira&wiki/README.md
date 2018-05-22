@@ -223,6 +223,7 @@ cp: overwrite ‘/opt/atlassian/jira/atlassian-jira/WEB-INF/lib/atlassian-extras
 mysql> CREATE DATABASE confluence CHARACTER SET utf8 COLLATE utf8_bin;
 mysql> GRANT ALL ON confluence.* TO 'wiki' @'%' IDENTIFIED BY 'wiki#2018' WITH GRANT OPTION;
 mysql> GRANT ALL ON confluence.* TO 'wiki' @localhost IDENTIFIED BY 'wiki#2018' WITH GRANT OPTION;
+mysql> SET GLOBAL tx_isolation='READ-COMMITTED';
 mysql> FLUSH PRIVILEGES;
 ```
 
@@ -375,6 +376,8 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
  22                            mail.smtp.starttls.enable="true"
  23                            mail.smtp.socketFactory.class="javax.net.ssl.SSLSocketFactory" />
 ```
+
+> 以上配置完毕后，重启confluence即可
 
 - 登陆WIKI后，点击右上角的"设置"——"一般配置"——"邮件服务器"——"增加新的SMTP邮件服务器"
 
