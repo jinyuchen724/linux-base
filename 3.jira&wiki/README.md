@@ -335,7 +335,7 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 
 - 设置数据库连接信息，选择MySQL数据库即可，填写完毕后相关的数据库地址、用户和密码后，就可以点击下一步按钮，如下图：
 
- ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki7.png)
+ ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki7.jpg)
 
 - 加载内容，选择"加载"示范站点"",如下图：
 
