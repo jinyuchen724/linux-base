@@ -337,6 +337,8 @@ c:\Users\XG\Desktop>java -jar confluence_keygen.jar
 
  ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki7.jpg)
 
+>  数据库URL请填写jdbc:mysql://localhost:3306/confluence?useUnicode=true&characterEncoding=utf8 不然界面某些地方会出现乱码
+
 - 加载内容，选择"加载"示范站点"",如下图：
 
  ![image](https://github.com/jinyuchen724/linux-base/raw/master/3.jira&wiki/wiki8.png)
