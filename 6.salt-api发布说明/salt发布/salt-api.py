@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 –*-
 
+#导入相关模块
 import urllib2,urllib
 from pprint import pprint
 import time
@@ -14,13 +15,17 @@ try:
     import json
 except ImportError:
     import simplejson as json
+	
+#定义saltapi类	
 class SaltAPI(object):
+    #初始化类
     __token_id = ''
     def __init__(self,url,username,password):
         self.__url = url.rstrip('/')
         self.__user = username
         self.__password = password
-
+    
+	#获取salt的token
     def token_id(self):
         ''' user login and get token id '''
         params = {'eauth': 'pam', 'username': self.__user, 'password': self.__password}
