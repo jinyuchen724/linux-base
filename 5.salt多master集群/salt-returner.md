@@ -16,7 +16,7 @@
 | ------ | ----- | ----- | ------- | ------ |
 | hz01-online-ops-salt-01(172.16.8.11)  | salt-master  |   Centos 7.3(x86-64)|  salt-master,salt-api |  主节点|
 | hz01-online-ops-salt-02(172.16.8.12)  | salt-master  |   Centos 7.3(x86-64)|  salt-master,salt-api |  主节点|
-| hz01-online-ops-salt-03(172.16.8.13)  | salt-slave |   Centos 7.3(x86-64)|  salt-slave |  slave节点 |
+| hz01-online-ops-salt-03(172.16.8.13)  | salt-minion |   Centos 7.3(x86-64)|  salt-minion |  slave节点 |
 
 
 - 用个最简单的例子如将结果写入文件
@@ -24,7 +24,7 @@
 > 自定义returner默认路径是/srv/salt/_returners
 
 ```
-[master]# mkdir -p  /srv/salt/_returners
+[master]# mkdir -p /srv/salt/_returners
 ```
 
 - 定义测试returner
@@ -59,7 +59,7 @@ hz01-online-ops-salt-03:
 - 执行命令
 
 ```
-[master]# salt '*'  cmd.run   'hostname'  --return  file
+[master]# salt '*' cmd.run 'hostname' --return file
 ```
 
 - 查看returner存储的日志文件
