@@ -3,9 +3,6 @@
 OpenVPN是Linux下的一款开源VPN，提供了良好的性能和友好的用户GUI，
 目前OpenVPN能在 Solaris、Linux、OpenBSD、FreeBSD、NetBSD、Mac OS X与Microsoft Windows以及Android和iOS上运行，并包含了许多安全性的功能。
 
-![image](https://github.com/jinyuchen724/linux-base/raw/master/7.openvpn/vpn1.jpg)
-
-
 # 部署环境
 
 | 主机   |   角色   |   操作系统 |   软件版本  |    备注  |
@@ -327,7 +324,27 @@ ops
 
 > 安装openvpn包
 
-03-openvpn-install-2.3.10-I601-x86_64.exe
+https://github.com/jinyuchen724/linux-base/blob/master/7.openvpn/03-openvpn-install-2.3.10-I601-x86_64.exe
 
+设置配置文件(保存密码,自动启动配置,与linux方式一致)将刚下载的用户配置文件内容放入openvpn安装目录下的config目录下(文件.ovpn后缀)
 
+启动openvpn,连接即可(无需输入账号密码)
+
+- mac客户端
+
+> 安装Tunnelblick 
+
+![image](https://github.com/jinyuchen724/linux-base/raw/master/7.openvpn/vpn12.png)
+
+点击“我没有配置文件” 
+
+![image](https://github.com/jinyuchen724/linux-base/raw/master/7.openvpn/vpn13.png)
+
+点击"新建配置样本,并且进行编辑",关闭所有弹出的对话框。在桌面出现一个配置样例：
+
+![image](https://github.com/jinyuchen724/linux-base/raw/master/7.openvpn/vpn14.png)
+
+设置配置文件(保存密码,自动启动配置,与linux方式一致)将刚下载的用户配置文件内容放入openvpn安装目录下的config目录下(文件.ovpn后缀),
+删除原来的client.ovpn。
+启动openvpn,连接即可(无需输入账号密码)
 
