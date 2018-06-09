@@ -18,6 +18,7 @@
 
 ```
 [hz01-online-ops-yum-01 /opt]# wget -O /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo
+[hz01-online-ops-yum-01 /opt]# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 ```
 
 - 安装httpd服务，用于提供存放yum源
@@ -62,10 +63,11 @@ repolist: 38,652
 > 使用epel作为本地yum源，用/var/www/html作为yum仓库根目录
 
 ```
-[hz01-online-ops-yum-01 /opt]#reposync -r epel -p /var/www/html/
+[hz01-online-ops-yum-01 /opt]# reposync -r epel -p /var/www/html/
+[hz01-online-ops-yum-01 /opt]# reposync -a x86_64 -m -p centos7-x86-64 -r base -r updates -r extras -p /var/www/html/centos7/
 ```
 
-> 命令执行完毕后，会将阿里云中的epel源同步到本地/var/www/html中,在/var/www/html中自动创建epel目录用于存放rpm包；第一次同步是时间可能较长，大概1W多个rpm包。
+> 命令执行完毕后，会将阿里云中的epel,centos7系统源同步到本地/var/www/html中,在/var/www/html中自动创建epel/centos7目录用于存放rpm包；第一次同步是时间可能较长，大概1W多个rpm包。
 
 - createrepo 命令创对/var/www/html/epel下的 rpm 包 创建为本地的 YUM 仓库，目的是为生成repodata目录并自动创建索引信息
 
@@ -86,7 +88,55 @@ Saving other metadata
 Generating sqlite DBs
 Sqlite DBs complete
 
-[hz01-online-ops-yum-01 /opt]#ll /var/www/html/epel/repodata/
+[hz01-online-ops-yum-01 /opt]# createrepo -g /var/www/html/centos7/base/comps.xml /var/www/html/centos7/base/
+Spawning worker 0 with 1239 pkgs
+Spawning worker 1 with 1239 pkgs
+Spawning worker 2 with 1239 pkgs
+Spawning worker 3 with 1239 pkgs
+Spawning worker 4 with 1239 pkgs
+Spawning worker 5 with 1239 pkgs
+Spawning worker 6 with 1239 pkgs
+Spawning worker 7 with 1238 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+
+[hz01-online-ops-yum-01 /opt]# createrepo /var/www/html/centos7/extras/
+Spawning worker 0 with 39 pkgs
+Spawning worker 1 with 38 pkgs
+Spawning worker 2 with 38 pkgs
+Spawning worker 3 with 38 pkgs
+Spawning worker 4 with 38 pkgs
+Spawning worker 5 with 38 pkgs
+Spawning worker 6 with 38 pkgs
+Spawning worker 7 with 38 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+
+[hz01-online-ops-yum-01 /opt]# createrepo /var/www/html/centos7/updates/
+Spawning worker 0 with 82 pkgs
+Spawning worker 1 with 82 pkgs
+Spawning worker 2 with 82 pkgs
+Spawning worker 3 with 82 pkgs
+Spawning worker 4 with 82 pkgs
+Spawning worker 5 with 82 pkgs
+Spawning worker 6 with 81 pkgs
+Spawning worker 7 with 81 pkgs
+Workers Finished
+Saving Primary metadata
+Saving file lists metadata
+Saving other metadata
+Generating sqlite DBs
+Sqlite DBs complete
+
+[hz01-online-ops-yum-01 /opt]# ll /var/www/html/epel/repodata/
 总用量 36132
 -rw-r--r-- 1 root root 11026375 5月  22 09:53 0935db2c5c884bf50d253da67d459207e8d6be8ef211ea66384de969238df4e4-filelists.sqlite.bz2
 -rw-r--r-- 1 root root  3185280 5月  22 09:52 20f75a7c2ef859771944f4abc351b8b8843111a43311e717e2f38458e0347411-other.sqlite.bz2
@@ -95,6 +145,19 @@ Sqlite DBs complete
 -rw-r--r-- 1 root root  3636059 5月  22 09:52 7f9ec5b7b8e1d98b4611b8f6a18f06c197e6bb999f78626c048ea3a90c1e2202-primary.xml.gz
 -rw-r--r-- 1 root root  2269109 5月  22 09:52 8d2c397b4363b2e7e3524eeff348695a21185b8d79a20e1ebd04b8b0f92a6b4d-other.xml.gz
 -rw-r--r-- 1 root root     3014 5月  22 09:53 repomd.xml
+
+[hz01-online-ops-yum-01 /opt]# ll /var/www/html/centos7/base/repodata/
+total 28124
+-rw-r--r-- 1 root root 6161792 Jun  9 13:11 03d0a660eb33174331aee3e077e11d4c017412d761b7f2eaa8555e7898e701e0-primary.sqlite.bz2
+-rw-r--r-- 1 root root  169476 Jun  9 13:11 29b154c359eaf12b9e35d0d5c649ebd62ce43333f39f02f33ed7b08c3b927e20-comps.xml.gz
+-rw-r--r-- 1 root root 7133920 Jun  9 13:10 3b7ec5d1dd09f452a54bacf567f486771f3333400169baa8f62d8107d3d6f2aa-filelists.xml.gz
+-rw-r--r-- 1 root root 1617685 Jun  9 13:10 430581635daba01e8b69ff4227305a67f7f7d967d2313277f7368aab8c338d36-other.xml.gz
+-rw-r--r-- 1 root root 2916112 Jun  9 13:10 6afcd31233c69da026f363eece2a99e5a79842313fef23bc76b96b69e90dd49d-primary.xml.gz
+-rw-r--r-- 1 root root  912297 Jun  9 13:11 d87379a47bc2060f833000b9cef7f9670195fe197271d37fce5791e669265e8b-comps.xml
+-rw-r--r-- 1 root root 2669706 Jun  9 13:10 ede157be4cf5c030483ab639f8f18c6daf268d4c233037a1578b3ed8258fa461-other.sqlite.bz2
+-rw-r--r-- 1 root root 7202122 Jun  9 13:10 f35d0029ad59e9fca0823be708150f5ee28ee1707cdc9bdaf420da676daafe28-filelists.sqlite.bz2
+-rw-r--r-- 1 root root    3716 Jun  9 13:11 repomd.xml
+
 ```
 
 - 验证本地yum源是否能正常使用：
