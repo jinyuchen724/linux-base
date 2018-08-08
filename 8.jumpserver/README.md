@@ -11,6 +11,12 @@
 | idc02-daily-jumpserverhost-112540(10.1.125.40)  | server-core,coco | Centos 7.2(x86-64) | 1.3.3.2  |  主节点|
 | idc02-daily-jumpserverhost-123139(10.1.123.139)  | 只需ssh | Centos 7.2(x86-64) |   |  客户节点|
 
+# 架构说明及管理文档
+
+```
+http://docs.jumpserver.org/zh/docs/admin_instruction.html
+```
+
 # 安装
 
 > 官方的安装文档十分详细,这里不赘述了。
@@ -20,8 +26,44 @@
 http://docs.jumpserver.org/zh/docs/step_by_step.html
 ```
 
+# 用户使用文档
+
+```
+http://docs.jumpserver.org/zh/docs/user_guide.html
+```
+
+# FAQ
+
+- sftp传输文件
+
+使用sftp登录跳板机
+
+```
+       #登录端口 #账号   #跳板机地址
+$ sftp -P2222 chenjinyu@10.1.125.40
+chenjinyu@10.1.125.40's password: 
+Please enter 6 digits.
+[MFA auth]: 608840       #google验证码
+
+# 显示有权限上传下载文件的主机
+sftp>ls
+idc02-daily-jumpserverhost-123139
+
+sftp> cd idc02-daily-jumpserverhost-123139 #这里是你有权限的资产
+sftp> cd SA                                #这里是你的账号目录
+sftp> ls                                   #这里可以使用get/put上传下载文件
+hosts        hsperfdata_www                                                                                       
+initos.log   initosPuppet7.sh                                                                                     
+```
+
+- 历史回溯
+
+https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump1.png
+
+https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump2.png
 
 
 
-https://github.com/jinyuchen724/linux-base/blob/master/7.openvpn/03-openvpn-install-2.3.10-I601-x86_64.exe
+
+
 
