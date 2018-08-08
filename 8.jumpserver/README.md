@@ -58,9 +58,9 @@ initos.log   initosPuppet7.sh
 
 - 历史回溯
 
-https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump1.png
+![image] (https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump1.png)
 
-https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump2.png
+![image] (https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump2.png)
 
 
 
