@@ -32,6 +32,21 @@ http://docs.jumpserver.org/zh/docs/step_by_step.html
 http://docs.jumpserver.org/zh/docs/user_guide.html
 ```
 
+# API调用
+
+
+```
+http://10.1.125.40/docs/
+
+包括不限于:
+1.创建删除节点
+2.创建删除资产
+3.创建删除对应权限
+
+python调用API
+见jump.py
+```
+
 # FAQ
 
 - sftp传输文件
@@ -61,7 +76,4 @@ initos.log   initosPuppet7.sh
 ![image](https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump1.png)
 
 ![image](https://github.com/jinyuchen724/linux-base/blob/master/8.jumpserver/jump2.png)
-
-
-
 
