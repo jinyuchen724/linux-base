@@ -8,8 +8,8 @@
 
 | 主机   |   角色   |   操作系统 |   软件版本  |    备注  |
 | ------ | ----- | ----- | ------- | ------ |
-| idc02-daily-jumpserverhost-112540(10.1.125.40)  | server-core,coco | Centos 7.2(x86-64) | 1.3.3.2  |  主节点|
-| idc02-daily-jumpserverhost-123139(10.1.123.139)  | 只需ssh | Centos 7.2(x86-64) |   |  客户节点|
+| jumpserverhost-1(10.1.1.2)  | server-core,coco | Centos 7.2(x86-64) | 1.3.3.2  |  主节点|
+| jumpserverhost-2(10.1.1.3)  | 只需ssh | Centos 7.2(x86-64) |   |  客户节点|
 
 # 架构说明及管理文档
 
@@ -36,7 +36,7 @@ http://docs.jumpserver.org/zh/docs/user_guide.html
 
 
 ```
-http://10.1.125.40/docs/
+http://10.1.1.2/docs/
 
 包括不限于:
 1.创建删除节点
@@ -55,16 +55,16 @@ python调用API
 
 ```
        #登录端口 #账号   #跳板机地址
-$ sftp -P2222 chenjinyu@10.1.125.40
-chenjinyu@10.1.125.40's password: 
+$ sftp -P2222 chenjinyu@10.1.1.2
+chenjinyu@10.1.1.2's password: 
 Please enter 6 digits.
 [MFA auth]: 608840       #google验证码
 
 # 显示有权限上传下载文件的主机
 sftp>ls
-idc02-daily-jumpserverhost-123139
+jumpserverhost-2
 
-sftp> cd idc02-daily-jumpserverhost-123139 #这里是你有权限的资产
+sftp> cd jumpserverhost-2 #这里是你有权限的资产
 sftp> cd SA                                #这里是你的账号目录
 sftp> ls                                   #这里可以使用get/put上传下载文件
 hosts        hsperfdata_www                                                                                       
